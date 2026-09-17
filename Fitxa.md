@@ -1,7 +1,7 @@
 # Fitxa 1 — Anàlisi inicial de MusicCloud
 
-**Nom i cognoms:** __________________________________________  
-**Data:** __________________  
+**Nom i cognoms:** Marcos Calvar Espino       
+**Data:** 17/09/26
 **Equip / parella:** 
 
 ## Objectiu
