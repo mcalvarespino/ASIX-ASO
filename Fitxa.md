@@ -64,14 +64,14 @@ Analitza l'estructura d'informació de MusicCloud.
 
 Classifica alguns dels recursos següents segons la seva finalitat.
 
-|Recurs|Qui creus que l'hauria d'utilitzar?|Per a què?|
+| Recurs | Qui creus que l'hauria d'utilitzar? | Per a què? |
 |---|---|---|
-|`/empresa/comu/intercanvi`|||
-|`/empresa/comu/comunicats`|||
-|`/empresa/departaments/administracio/compartida`|||
-|`/empresa/departaments/administracio/gestio_departament`|||
-|`/empresa/projectes/campanya_estiu`|||
-|`/empresa/administracio_sistema/backups`|||
+| `/empresa/comu/intercanvi` | Tot el personal i els externs autoritzats. | Per intercanviar temporalment documents, i mes esspecificament amb persones externes o altres treballadors... |
+| `/empresa/comu/comunicats` | Direcció per publicar i la plantilla interna per consultar. | Per difondre comunicats interns de la empresa. Els externs no hi han de accedir clarament. |
+| `/empresa/departaments/administracio/compartida` | Administració amb L/E i Direcció amb L. | Per compartir la documentacio de treball que es sol fer servir al departament. |
+| `/empresa/departaments/administracio/gestio_departament` | Laia amb L/E i Direcció amb L. | Per gestionar i validar informació que esta reservada a la responsable d'Administració. |
+| `/empresa/projectes/campanya_estiu` | nomes les persones assignades al projecte. | Per compartir els fitxers de Campanya Estiu entre els que participen (poden ser de diversos departaments). |
+| `/empresa/administracio_sistema/backups` | Els administradors del sistema d'Informàtica. | Per crear, protegir, comprovar i restaurar còpies de seguretat com la carpeta diu. |
 
 ---
 
