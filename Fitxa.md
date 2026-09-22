@@ -143,9 +143,11 @@ Dídac deixa Administració i passa a Producció musical.
 
 Quins accessos hauria de perdre?
 
----
+Els permisos L/E sobre `/empresa/departaments/administracio/compartida` i `/empresa/departaments/administracio/documentacio_interna`, i qualsevol acces que sigui exclusiu de Administració. i no per lacces a `gestio_departament` per que no tenia accés a `gestio_departament` perquè no era el responsable.
 
 Quins accessos hauria d'obtenir?
+
+L/E sobre `/empresa/departaments/produccio_musical/compartida`, `artistes` i `cataleg`. No hauria d'accedir a `gestio_departament`, a no ser que fos el responsable en un futur. Els accessos comuns es mantenen i els de projectes només s'afegeixen si hi participa per exemple al destiu o a altres...
 
 ---
 
