@@ -56,12 +56,7 @@ X Sí
 ☐ No
 
 Posa'n algun exemple:
-
----
-
----
-
----
+Per exemple la Laia forma part d'Administració com Dídac, pero per exemple com que es la responsable ha de poder accedir a `gestio_departament`. O un altre sexemple seria la Talia, a part de formar part de Informàtica necessita permisos d'administració sobre backups, logs i configuracions.
 
 # 2. Recursos de l'empresa
 
