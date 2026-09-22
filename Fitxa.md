@@ -2,7 +2,7 @@
 
 **Nom i cognoms:** Marcos Calvar Espino       
 **Data:** 17/09/26
-**Equip / parella:** 
+**Equip / parella:** N/A
 
 ## Objectiu
 
