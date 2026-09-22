@@ -27,16 +27,16 @@ Consulta la informació disponible sobre els departaments, treballadors i perfil
 
 Completa la taula següent.
 
-|Persona|Departament|Funció / responsabilitat|Necessita privilegis especials? Per què?|
+| Persona | Departament | Funció / responsabilitat | Necessita privilegis especials? Per què? |
 |---|---|---|---|
-|||||
-|||||
-|||||
-|||||
-|||||
-|||||
-|||||
-|||||
+| Aina Ciurans | Direcció | Gestió general i presa de decisions de l'empresa. | Sí. Ha de accedir a els espais de Direcció i mirar alguns recursos del departament o departamentals.., però dinformàtica no necesita permissos. |
+| Dídac Gassó | Administració | Factures, contractes i documentació interna. | No. Com a usuari normal o estandard, necessita els recursos comuns entre tots i els del seu departament en concret. |
+| Laia Macias | Administració | Tasques administratives i coordinació del departament. | Sí. Com a responsable necessita acces complet a `gestio_departament` i tenri acces a informacio compartida amb Direcció per consultar-la. |
+| Lluïsa Richart | Suport tècnic | Manteniment, incidències i coordinació de Suport tècnic. | Sí. Es la responsable del departament i necessita accedir a la carpeta de gestió i als scripts ja que es de manteniment també. |
+| Meritxell Reglat | Producció musical | Gestió de continguts musicals i coordinació del departament. | Sí. És la responsable i necessita acces a `gestio_departament`, a més dels recursos que tenen els de producció. |
+| Talia Costas | Informàtica | Administració dels sistemes i coordinació d'Informàtica. | Sí. Com a administradora del sistema necessita gestionar usuaris, grups, permisos, serveis, logs, configuracions i backups es a dir els recursos inormàtics per administrar el sistema o cordinarlo també.... |
+| Alex Soriano | Informàtica | Suport i administració del sistema informàtic. | Sí. Necessita privilegis tecnics per mantenir els sistemes, segons les tasques que se liassignin... |
+| Pere Espinalt | Externs | Col·laboració temporal en recursos concrets. | Necessita un accés especial pero limitat: nomes ha de poder accedir  als recursos publics o compartits que se li assignin, sense informació interna de la empresa ni administracio. |
 
 ### 1.1. Reflexió
 
@@ -50,7 +50,7 @@ Quines diferències observes entre un **treballador**, un **departament** i una 
 
 Hi ha persones que, pel seu càrrec o funció, necessiten accessos diferents dels altres membres del seu departament?
 
-☐ Sí  
+X Sí  
 ☐ No
 
 Posa'n algun exemple:
