@@ -43,10 +43,12 @@ Completa la taula següent.
 Quines diferències observes entre un **treballador**, un **departament** i una **funció o responsabilitat**?
 
 ---
+Un treballador es una persona concreta amb un compte d'usuari a la empresa.
 
 ---
-
+Un departament es una unitat organitzativa per exemple al windows server que agrupa persones amb un ambit de feina que comparteixen tots
 ---
+Una funcio o responsabilitat descriu que fa una persona i quins accesos ha de tenri o que pot requererir accesos diferents encara que comparteixi departament amb altres treballadors.
 
 Hi ha persones que, pel seu càrrec o funció, necessiten accessos diferents dels altres membres del seu departament?
 
