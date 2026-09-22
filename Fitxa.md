@@ -115,39 +115,23 @@ David → lectura/escriptura
 
 Què passaria si l'empresa tingués **100 treballadors** amb el mateix tipus d'accés?
 
----
-
----
+Caldria repetir 100 vegades la mateixa configuracio, Seria molt lent de fer a part de  difícil de revisar i augmentaria la possibilitat d'errors o de permisos diferents entre persones amb la mateixa necessitat per que som sers humans.
 
 ### 4.2.
 
 Què passaria cada vegada que s'incorporés una persona nova?
 
----
-
----
+S'haurien de fer manualment tots els seus accessos un per un a part de crearli un perfil pero no entra a aquesta pregunta a part també seria fàcil oblidar algun recurs necessari o donar-ne algun de més o de memys(cometre errors).
 
 ### 4.3.
 
-Què passaria quan una persona canviés de departament?
-
----
-
----
+Caldria retirar tots els permisos de l'antic departament un per un i afegir individualment els del nou.amb la posibilitat de oblidarse de algun a part, podria conservar accés a informació que ja no necessita sense volguer i ja estariem fent les coses malament.
 
 ### 4.4.
 
 Proposa una manera de gestionar aquestes persones conjuntament.
 
-No cal que coneguis encara el nom tècnic de la solució.
-
----
-
----
-
----
-
----
+Crearia conjunts de persones que tinguin les mateixes necessitats dacces o permissos i assignaria els permisos a cada conjunt. Quan una persona entres, sortis o canvies de funcio o departament, nomes caldria modificar a quin conjunt pertany aixo crec que e spot fer faicl amb windows server active directory.
 
 # 5. Canvis a MusicCloud
 
