@@ -77,31 +77,15 @@ Classifica alguns dels recursos següents segons la seva finalitat.
 
 # 3. Qui ha de poder fer què?
 
-Per a cada situació, indica quin nivell d'accés consideres adequat.
-
-Utilitza:
-
-- **NA** → sense accés
-    
-- **L** → lectura
-    
-- **L/E** → lectura i escriptura
-    
-- **ADM** → administració
-    
-
-No busquis encara una solució tècnica. Pensa només en les necessitats de l'empresa.
-
-|Situació|Accés proposat|Justificació|
+| Situació | Accés proposat | Justificació |
 |---|---|---|
-|Dídac accedeix a la carpeta compartida d'Administració|||
-|Laia accedeix a la gestió del departament d'Administració|||
-|Pere, treballador extern, accedeix als comunicats interns|||
-|Talia accedeix als backups del sistema|||
-|Un membre de Producció musical accedeix a la carpeta d'Administració|||
-|Un participant de `campanya_estiu` accedeix als fitxers del projecte|||
+| Dídac accedeix a la carpeta compartida d'Administració | **L/E** | Es membre d'Administració i hi treballa amb documents del departament de administració. |
+| Laia accedeix a la gestió del departament d'Administració | **L/E** | Es la responsable d'Administració i ha de coordinar i validar documentació. |
+| Pere, treballador extern, accedeix als comunicats interns | **NA** | Els comunicats són interns i el perfil extern no poden tenir acces per que no han de veure aquesta informació per clars motius. |
+| Talia accedeix als backups del sistema | **ADM** | És administradora del sistema i ha de gestionar i restaurar les còpies a les hroes li donarem permissos de admin. |
+| Un membre de Producció musical accedeix a la carpeta d'Administració | **NA** | No forma part d'Administració i no ha de poder accedir a aquests recursos per que no es la feina que li toca. |
+| Un participant de `campanya_estiu` accedeix als fitxers del projecte | **L/E** | En estar assignat al projecte, ha de poder consultar i crear els fitxers a aquest directori logicament. |
 
----
 
 # 4. Primer problema: com assignem els permisos?
 
