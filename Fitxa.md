@@ -299,30 +299,18 @@ Completa les frases amb les teves paraules.
 
 ### Usuari
 
-Un usuari representa:
-
----
-
+Un usuari es una persona que te un compte al sistema
 ### Recurs
 
-Un recurs és:
-
----
+Es un element del sistema que es vol fer servir o protegir i podria ser cualsevol cosa com una carpet aper exemple 
 
 ### Permís
 
-Un permís determina:
-
----
+Son les accions que pot fer un usuari o grup sobre un recurs com ara be una carpeta, podria ser lleguir escrirue executar...
 
 ### Grup
 
-Un grup serveix per:
-
----
-
----
-
+Un grup serveix per reunir diversos usuaris amb necesitats semblants per assignarlis permissos de manera conjunta per exemple o per organització pero llavors seria una OU 
 # 11. Regla de mínim privilegi
 
 Analitza aquesta afirmació:
