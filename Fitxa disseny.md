@@ -44,25 +44,30 @@ Dibuixa l'estructura que utilitzaries per organitzar els usuaris de MusicCloud.
 
 ```text
 MusicCloud
-│
-└──
+└── Usuaris
+    ├── Direccio (Aina Ciurans, Rut Tornil)
+    ├── Administracio (Dídac Gassó, Laia Macias)
+    ├── Suport_Tecnic (Estel Birosta, Aina Zuriguel, Lluïsa Richart)
+    ├── Produccio_Musical (Roser Alberch, Guillem Adella, Meritxell Reglat,
+    │                     Alícia Monclús, Carles Molins, Eulàlia Galcera)
+    ├── Informatica (Talia Costas, Alex Soriano)
+    └── Externs (Pere Espinalt, Neus Bages)
 ```
-
 ---
 
 # 3. OU o grup?
 
 Indica quina opció utilitzaries principalment en cada cas.
 
-|Necessitat|OU|Grup|
-|---|:-:|:-:|
-|Organitzar els treballadors d'Administració|☐|☐|
-|Donar accés a la carpeta d'Administració|☐|☐|
-|Organitzar els ordinadors clients|☐|☐|
-|Identificar les persones que participen en Campanya Estiu|☐|☐|
-|Organitzar els servidors|☐|☐|
-|Donar privilegis als administradors del sistema|☐|☐|
-|Organitzar els comptes utilitzats per aplicacions|☐|☐|
+| Necessitat | OU | Grup |
+|---|:---:|:---:|
+| Organitzar els treballadors d'Administració | ☑ | ☐ |
+| Donar accés a la carpeta d'Administració | ☐ | ☑ |
+| Organitzar els ordinadors clients | ☑ | ☐ |
+| Identificar les persones que participen en Campanya Estiu | ☐ | ☑ |
+| Organitzar els servidors | ☑ | ☐ |
+| Donar privilegis als administradors del sistema | ☐ | ☑ |
+| Organitzar els comptes utilitzats per aplicacions | ☑ | ☐ |
 
 ### Explica amb les teves paraules la diferència principal entre una OU i un grup.
 
