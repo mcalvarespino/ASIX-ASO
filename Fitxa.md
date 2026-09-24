@@ -234,14 +234,13 @@ A partir de l'organització de l'empresa, proposa els primers conjunts de person
 
 **No cal trobar encara la solució definitiva.**
 
-|Nom proposat|Qui hi pertanyeria?|Per què existeix aquest conjunt?|
+| Nom proposat | Qui hi pertanyeria? | Per què existeix aquest conjunt? |
 |---|---|---|
-||||
-||||
-||||
-||||
-||||
-
+| Direcció | Aina Ciurans i Rut Tornil | Per gestionar els recursos  de Direcció i mirar la informació del departament. |
+| Administració | Dídac Gassó i Laia Macias | Per accedir als recursos comuns d'Administració. La responsabilitat de Laia es tracta amb un grup a part. |
+| Suport tècnic | Estel Birosta, Aina Zuriguel i Lluïsa Richart | Per gestionar les incidències i els recursos de Suport tecnic. |
+| Producció musical | Roser Alberch, Guillem Adella, Meritxell Reglat, Alícia Monclús, Carles Molins i Eulàlia Galcera | Per gestionar artistes, els catalegs o els documents de producció. |
+| Informàtica | Talia Costas i Alex Soriano | Per gestionar els recursos del departament i les tasques autoritzades dels de admin de sistema. |
 ---
 
 # 8. Cas que complica el model
@@ -251,10 +250,12 @@ Laia treballa al departament d'Administració, però també és la responsable d
 És suficient que pertanyi només al conjunt `Administració`?
 
 ☐ Sí  
-☐ No
+[x] No
 
 Per què?
 
+
+El conjunt Administració ha de donar els accessos comuns a Dídac i Laia, però Laia necessita privilegis que Dídac no ha de tenir, especialment sobre `gestio_departament`. ja que es la cap 
 ---
 
 ---
