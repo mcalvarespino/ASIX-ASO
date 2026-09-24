@@ -159,6 +159,7 @@ S'incorpora una nova treballadora al departament d'Administració.
 
 Quins accessos caldria configurar?
 
+Caldria crear el compte i la carpeta personal, donar-li els accessos comuns d'una treballadora interna i a les hores assignar L/E a `administracio/compartida` i `administracio/documentacio_interna`; mantenir `gestio_departament` en NA si no és la responsable tambe afegir només els projectes en què participi que pot variar...
 ---
 
 ---
@@ -170,6 +171,8 @@ Quins accessos caldria configurar?
 Pere Espinalt deixa de col·laborar amb MusicCloud.
 
 Què hauríem de fer amb els seus accessos?
+
+Caldria desactivar al moment el compte, retirar-lo de tots els accessos temporals i projectes, a part les contraseñes i les sesiosn referents a la empresa que tingui iniciaceds i conservar o transferir els fitxers necessaris segons la política de l'empresa i la seva informaciò. I clarament no borrarem el compte per traçabilitat simplement el deshabilitarem
 
 ---
 
