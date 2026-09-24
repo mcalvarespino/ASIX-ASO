@@ -203,6 +203,8 @@ Administració → carpeta_administracio → L/E
 
 Quin avantatge té aquesta solució respecte a donar permisos persona per persona?
 
+Els permisos es defineixen una sola vegada per a tot el conjunt de persones o usuaris i  això redueix la feina i els errors a part mante criteris sempre iguals i facilita els cambis de departament i aquestes coses
+
 ---
 
 ---
@@ -210,6 +212,8 @@ Quin avantatge té aquesta solució respecte a donar permisos persona per person
 ### 6.2.
 
 Si Dídac passa d'Administració a Producció musical, què caldria modificar?
+
+Caldria treure'l del conjunt Administració amb els permisos que te el conjunt i afegir-lo al conjunt Producció musical. Els permisos es ficaram automaticament sense haver d'editar cada un manualment
 
 ---
 
@@ -219,6 +223,7 @@ Si Dídac passa d'Administració a Producció musical, què caldria modificar?
 
 Com anomenaries aquests conjunts de persones?
 
+Grups de usuaris
 ---
 
 ---
