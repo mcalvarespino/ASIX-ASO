@@ -281,9 +281,10 @@ Campanya Estiu
 Creus que hauríem de canviar-les de departament?
 
 ☐ Sí  
-☐ No
+[x] No
 
-Si no, com podríem donar-los accés als recursos del projecte?
+
+Crearia un grup temporal `Campanya_Estiu`, hi afegiria les persones participants sense canviar-les de departament i assignaria al grup L/E sobre `/empresa/projectes/campanya_estiu`. Quan el projecte acabi, es treuran els membres o es desactivarien el grup i l'accés a ell.
 
 ---
 
@@ -294,6 +295,7 @@ Si no, com podríem donar-los accés als recursos del projecte?
 # 10. Conclusions
 
 Completa les frases amb les teves paraules.
+
 
 ### Usuari
 
