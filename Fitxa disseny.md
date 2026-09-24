@@ -11,15 +11,17 @@ MusicCloud necessita gestionar de manera centralitzada diferents tipus d'objecte
 
 Indica quins tipus d'objectes consideres que ha de contenir el servei de directori.
 
-|Tipus d'objecte|Exemples a MusicCloud|
+| Tipus d'objecte | Exemples a MusicCloud |
 |---|---|
-|Usuaris||
-|Grups||
-|Equips||
-|Servidors||
-|Comptes d'aplicacions o serveis||
+| Usuaris | Comptes dels treballadors d'Administració i Direcció; comptes de col·laboradors externs. |
+| Grups | `GG_Administracio`, `GG_Direccio`, `GG_Campanya_Estiu`, `GP_Carpeta_Administracio_Lectura`. |
+| Equips | Ordinadors de sobretaula i portàtils de l'empresa a part impresores sais etc.... |
+| Servidors | Servidor de fitxers, servidor d'aplicacions i servidors del directori. |
+
+
 
 Hi afegiries algun altre tipus d'objecte?
+hi afegiria els dispositius de xarxa que es puguin fucar al directori, com ara alguns NAS per les copeis de seguretat o carpetes compartides, impressores o equips de xarxa auqe aquets es poden ficar 100%. També es poden inventariar mòbils, encaminadors, commutadors i tallafocs, però no tots haurien de ser un objecte al server crec jo 
 
 ---
 
@@ -29,13 +31,12 @@ Hi afegiries algun altre tipus d'objecte?
 
 Proposa les **unitats organitzatives (OU)** principals que utilitzaries a MusicCloud.
 
-|OU|Què contindrà?|Per què la crees?|
+| OU | Què contindrà? | Per què la crees? |
 |---|---|---|
-||||
-||||
-||||
-||||
-||||
+| `Usuaris` | Comptes personals, separats per departament o tipus de relació. | Per administrar els comptes i aplicar configuracions segons el col·lectiu. |
+| `Grups` | Grups de departament, projecte, permisos i administració. | Per trobar-los i mantenir-los ordenats; els permisos s'assignaran als grups, no a l'OU. |
+| `Equips` | Ordinadors clients de sobretaula i portàtils. | Per aplicar configuracions adequades a cada tipus d'equip. |
+| `Xarxa` | Dispositius compatibles amb el directori, si n'hi ha. | Per mantenir-los identificats sense barrejar-los amb ordinadors i servidors. |
 
 ## 2.1. Organització dels usuaris
 
