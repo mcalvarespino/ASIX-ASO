@@ -262,6 +262,8 @@ El conjunt Administració ha de donar els accessos comuns a Dídac i Laia, però
 
 Quina possible solució proposes?
 
+Mantindria Laia al grup Administració i l'afegiria a un segon grup, per exemple `Responsables_Administracio` o `Caps_de_departament`, amb els permisos que necesiti. Així una mateixa persona pot formar part de més d'un grup segons les seves funcions o necesitats
+
 ---
 
 ---
