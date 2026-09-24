@@ -319,12 +319,14 @@ Analitza aquesta afirmació:
 
 Explica amb les teves paraules què significa.
 
+Vol dir que a un usuari no li has de donar permissos qu eno necesita exemple , si nomes ha de consultar les dades de una carpeta pero no ha de tocar res mes no li donguis escriptura , ja que podria fer algo que no es suposa que ha de fer ja sigui volguent o sense voler, a mes si per exemple li hackejessin el compte tendria mes permissos dels que deuria i podria liarla mes del que es suposa que pot fer...
 ---
 
 ---
 
 Posa un exemple relacionat amb MusicCloud.
 
+Pere, com a extern, pot tenir L/E a `/empresa/comu/intercanvi` per compartir documents temporals o ferne de nous,però ha de tenir NA als comunicats interns  als departaments i als backups ja que ell no ha de accedir ni verels de ninguna manera. Quan acabi la col·laboració, el seu accés s'ha de retirar de intercambi comu tambe clarament per que ja no es necesari no son permissos estrictament necesaris...
 ---
 
 ---
@@ -336,6 +338,7 @@ Posa un exemple relacionat amb MusicCloud.
 Imagina que demà MusicCloud passa de 14 treballadors a 500.
 
 Quina de les dues estratègies consideres més adequada?
+
 
 ☐ Assignar permisos individualment a cada usuari.
 
