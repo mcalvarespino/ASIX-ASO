@@ -134,32 +134,64 @@ Completa les frases següents.
 ---
 
 # 7. DIT de MusicCloud
-
-Dibuixa la proposta final de **Directory Information Tree (DIT)** de MusicCloud.
-
-Ha de mostrar, com a mínim:
-
-- usuaris;
-    
-- grups;
-    
-- equips;
-    
-- servidors;
-    
-- comptes d'aplicacions o serveis;
-    
-- les subdivisions que consideris necessàries.
-    
+El arbre del directori amb ou i grups que proposo es el següent:
+ Els noms representen OU despres els grups i comptes concrets se situarien dins de la branca corresponent.
 
 ```text
 MusicCloud
-│
-│
-│
-│
-│
+├── Usuaris
+│   ├── Direccio
+│   ├── Administracio
+│   ├── Suport_Tecnic
+│   ├── Produccio_Musical
+│   ├── Informatica
+│   └── Externs
+├── Grups
+│   ├── Departaments
+│   ├── Responsables
+│   ├── Projectes
+│   ├── Permisos
+│   └── Administradors
+├── Equips
+│   ├── Sobretaula
+│   └── Portatils
+├── Servidors
+│   ├── Directori
+│   ├── Fitxers
+│   └── Aplicacions
+├── Comptes_de_servei
+└── Xarxa
+    └── Dispositius_integrats
 ```
+
+Els mòbils i altres aparells sense objecte al directori es controlaran amb un inventari o amb l'eina de gestió corresponent. Només es crearan subdivisions addicionals quan hi hagi una necessitat real de gestió.
+
+**Grups inicials i membres:**
+
+| Grup | Membres o criteri | Ús |
+|---|---|---|
+| `GG_Direccio` | Aina Ciurans i Rut Tornil. | Identificar Direcció i donar-li els accessos previstos. |
+| `GG_Administracio` | Dídac Gassó i Laia Macias. | Recursos ordinaris d'Administració. |
+| `GG_Suport_Tecnic` | Estel Birosta, Aina Zuriguel i Lluïsa Richart. | Recursos de Suport tècnic. |
+| `GG_Produccio_Musical` | Roser Alberch, Guillem Adella, Meritxell Reglat, Alícia Monclús, Carles Molins i Eulàlia Galcera. | Recursos de Producció musical. |
+| `GG_Informatica` | Talia Costas i Alex Soriano. | Recursos d'Informàtica; no atorga privilegis d'administrador per si sol. |
+| `GG_Externs` | Pere Espinalt i Neus Bages. | Accés limitat a l'espai d'intercanvi. |
+| `GG_Caps_Departament` | Laia Macias, Lluïsa Richart, Meritxell Reglat i Talia Costas. | Identificar responsables; els permisos de cada carpeta de gestió es delimiten per departament. |
+| `GG_Campanya_Estiu`, `GG_Nou_Cataleg`, `GG_Migracio_Servidors` | Només les persones assignades a cada projecte. | Accés a la carpeta del projecte corresponent; falta confirmar-ne els membres. |
+| `GG_Admins_Sistema` | Només el personal d'Informàtica designat explícitament. | Privilegis d'administració del sistema. |
+
+Per exemple, `GP_Administracio_Gestio_LE` en forma part la **Laia Macias** i donaria lectura i escriptura a `/empresa/departaments/administracio/gestio_departament`. Es crearien grups equivalents per a Lluïsa Richart, Meritxell Reglat i Talia Costas als seus departaments. El grup general de caps identifica el rol, però no concedeix accés a totes les carpetes de gestió. Per a la lectura de Direcció i els accessos temporals justificats de Suport tècnic, es farien grups de permisos específics i limitats.
+
+| Recurs | Grup o criteri de permís |
+|---|---|
+| `/empresa/comu/intercanvi` | Grups interns i `GG_Externs`: L/E, per a l'intercanvi temporal. |
+| `/empresa/departaments/administracio/compartida` | `GG_Administracio`: L/E; `GG_Direccio`: L. |
+| `/empresa/departaments/administracio/gestio_departament` | `GP_Administracio_Gestio_LE`: L/E; Direcció: L. |
+| `/empresa/projectes/campanya_estiu` | `GG_Campanya_Estiu`: només els participants assignats. |
+| `/empresa/projectes/nou_cataleg` i `migracio_servidors` | Grups de projecte respectius: només els participants assignats. |
+| `/empresa/administracio_sistema/backups` | Grup específic d'administradors autoritzats: ADM. |
+
+
 
 ---
 
