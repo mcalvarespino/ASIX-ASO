@@ -215,25 +215,18 @@ Situar `Grups/Projectes` separat de les OU dels departaments.
 
 Respon breument.
 
-### a) Per què no seria una bona idea guardar tots els usuaris, grups, equips i servidors al mateix nivell sense organitzar-los?
+### a) Per què no seria una bona idea guardar tots els objectes al mateix nivell?
 
----
-
----
+Perquè costaria localitzar-los, gestionarlos i aplicar configuracions adequades a cada tipus d'objecte es a dir si tots estiguessin al mateix nivell tindrien lo mateix. El problema augmentaria a mesura que creixés l'empresa sobre tot
 
 ### b) Per què no hauríem d'utilitzar les OU per substituir els grups de permisos?
 
----
+Perquè una OU classifica i ajuda a administrar objectes dins de la jerarquia que voem montar, mentre que els permisos es poden concedir a grups. Una persona pot necessitar accessos de diversos projectes sense canviar de departament ni d'OU, sinplement ficantlo o treientlo de un grup amb permissos 
 
----
+### c) Si MusicCloud passa de 14 a 500 treballadors, què facilitarà més l'administració?
 
-### c) Si MusicCloud passa de 14 a 500 treballadors, quina característica del disseny que has fet avui facilitarà més l'administració?
+La separació estable per tipus d'objecte i per departament com ho hem decidit muntar , combinada amb grups per als accessos. Permet afegir usuaris i noves àrees sense haver de tornar a fer el directori ni concedir permisos persona per persona i anar molt lent o poderte equivocar.
 
----
-
----
-
----
 
 # Documentació final del sistema
 
@@ -243,16 +236,33 @@ A partir de les decisions preses durant la sessió, deixa definida la proposta q
 
 ```text
 MusicCloud
-│
-│
-│
-│
+├── Usuaris
+│   ├── Direccio
+│   ├── Administracio
+│   ├── Suport_Tecnic
+│   ├── Produccio_Musical
+│   ├── Informatica
+│   └── Externs
+├── Grups
+│   ├── Departaments
+│   ├── Responsables
+│   ├── Projectes
+│   ├── Permisos
+│   └── Administradors
+├── Equips
+│   ├── Sobretaula
+│   └── Portatils
+├── Servidors
+│   ├── Directori
+│   ├── Fitxers
+│   └── Aplicacions
+└── Xarxa
+    └── Dispositius_integrats
 ```
+### Criteri utilitzat per organitzar els objectes
 
-## Criteri utilitzat per organitzar els objectes
+Primer es classifiquen segons el tipus d'objecte. Els usuaris es divideixen pel departament principal o la condició d'extern que es els externs clarament, despres els equips, pel tipus, els servidors, per la funció. Les subdivisions noves es crearan quan tirem endevant el projecte si tenim mes necesitats.
 
----
+### Criteri utilitzat per diferenciar OU i grups
 
----
-
-## Criteri utilitzat per diferenciar OU i grups
+Les **OU** defineixen la ubicació en lestrucgura dels objectes i permeten organitzar-los i aplicar-hi polítiques de gestió. Els **grups** diuen la funcions i permisos vol dir que per exemple, l'accés a una carpeta o la participació en una campanya. Un usuari pot estar en una sola OU de l'arbre(ubicacio en la jerarquia del server) i formar part de diversos grups a lhora per gestionar els seus permissos ne les areas que faci falta.
