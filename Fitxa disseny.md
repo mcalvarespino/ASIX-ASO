@@ -72,12 +72,14 @@ Indica quina opció utilitzaries principalment en cada cas.
 ### Explica amb les teves paraules la diferència principal entre una OU i un grup.
 
 **OU:**
+és un contenidor/caixa que ordena els objectes(usuaris o el que sigui) en una estructura que te una jeraquia. Ajuda a adminsitrar  i a aplicar polítiques a un conjunt d'objectes dit de un altre manera ajuda a donar certes necesitats o treure a varis objectes o usuaris per exemple a lhora.
 
 ---
 
 ---
 
 **Grup:**
+agrupa o reuneix objectes que comparteixen una funcio semblant o una necessitat de permisos iguals/semblants i es fa servir per assignar permisos o privilegis a aquet conjunt, i logicament una persona pot ser de mes de un grup no com les OU.
 
 ---
 
