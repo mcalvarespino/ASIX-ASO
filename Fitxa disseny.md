@@ -190,7 +190,7 @@ Per exemple, `GP_Administracio_Gestio_LE` en forma part la **Laia Macias** i don
 | `/empresa/projectes/campanya_estiu` | `GG_Campanya_Estiu`: només els participants assignats. |
 | `/empresa/projectes/nou_cataleg` i `migracio_servidors` | Grups de projecte respectius: només els participants assignats. |
 | `/empresa/administracio_sistema/backups` | Grup específic d'administradors autoritzats: ADM. |
-
+.
 
 
 ---
