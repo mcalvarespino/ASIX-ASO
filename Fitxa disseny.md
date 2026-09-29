@@ -190,7 +190,6 @@ Per exemple, `GP_Administracio_Gestio_LE` en forma part la **Laia Macias** i don
 | `/empresa/projectes/campanya_estiu` | `GG_Campanya_Estiu`: només els participants assignats. |
 | `/empresa/projectes/nou_cataleg` i `migracio_servidors` | Grups de projecte respectius: només els participants assignats. |
 | `/empresa/administracio_sistema/backups` | Grup específic d'administradors autoritzats: ADM. |
-.
 
 
 ---
@@ -201,25 +200,16 @@ Escull **dues decisions** del teu DIT que consideris importants i justifica-les.
 
 ### Decisió 1
 
----
+Separar `Usuaris` segons els cinc departaments reals i  el extern.
 
-**Justificació:**
-
----
-
----
+**Justificació:** et deixa localitzar els comptes i ficar criteris de admn. diferents als treballadors i als col·laboradors externs de manera centralitzada. Si MusicCloud creix, es podran afegir departaments sense canviar tota l'estructura
 
 ### Decisió 2
 
----
+Situar `Grups/Projectes` separat de les OU dels departaments.
 
-**Justificació:**
+**Justificació:** una campanya pot reunir persones d'àrees diferents. El grup `GG_Campanya_Estiu` representa aquesta participació sense haver de moure els comptes de la seva OU principal, aixi que aixo es fa en grups i no amb OU temporal o algo raro 
 
----
-
----
-
----
 
 # 9. Comprovació final
 
