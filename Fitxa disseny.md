@@ -101,22 +101,15 @@ Considera aquest cas:
 Indica:
 
 **En quina OU ubicaries el seu compte?**
+a `MusicCloud/Usuaris/Administracio`, perquè és el seu departament principal.
 
 ---
 
-**A quins grups podria pertànyer?**
 
----
+A `GG_Administracio` i al grup que dona lectura i escriptura a la carpeta compartida d'Administració que ara no sabem el nom. com participa a la campanya destiu també a `GG_Campanya_Estiu`. Laia Macias, com a cap del departament, tindria a més els permisos de `gestio_departament`; Dídac no els rebria només per ser d'Administració logicament.
 
----
-
-### Per què no és contradictori que estigui en una OU però pertanyi a diversos grups?
-
----
-
----
-
----
+**Per què no és contradictori?**
+ L'OU indica on es troba el compte dins l'estructura del directori que volem fer. Pero els grups et diuen les seves funcions i els accessos que necessita cad ausuari. Un compte ocupa una ubicació dins aquesta estructura jerarquica de OU, pero pot ser membre de diversos grups alhora amb diversos permissos, en cas de dubte sempre saplica el mes restrictiu si un es lectura i escriptura i a lhora te nomes lectura tindra nome slectura .
 
 # 5. Servei de directori
 
