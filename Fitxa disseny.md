@@ -112,41 +112,24 @@ A `GG_Administracio` i al grup que dona lectura i escriptura a la carpeta compar
  L'OU indica on es troba el compte dins l'estructura del directori que volem fer. Pero els grups et diuen les seves funcions i els accessos que necessita cad ausuari. Un compte ocupa una ubicació dins aquesta estructura jerarquica de OU, pero pot ser membre de diversos grups alhora amb diversos permissos, en cas de dubte sempre saplica el mes restrictiu si un es lectura i escriptura i a lhora te nomes lectura tindra nome slectura .
 
 # 5. Servei de directori
+Un **servei de directori** és un sistema que guarda i organitza informació sobre les persones i recursos d'una xarxa, i permet consultar-los i administrar-los de manera centralitzada des del mateix server.
 
-Explica breument què entens per **servei de directori**.
-
----
-
----
-
-Quin problema resol a MusicCloud?
-
----
-
----
-
----
-
+A MusicCloud resol el problema de gestionar per separat els usuaris i els accessos de cada ordinador o aplicació a la empresa, aixo vol dir que facilita l'inici de sessió, l'administració dels equips i l'assignació ven feta de permisos i automatització
 # 6. LDAP
 
 Completa les frases següents.
 
-**LDAP és:**
+**LDAP és:** un protocol que permet consultar i modificar informació d'un servei de directori.
 
----
+**LDAP no és:** el nom d'un producte concret ni un dir literalment d'Active Directory; tampoc és, per si sol, tota la infraestructura del directori, es el servei que serveix per controlar les funcions de ad que es fan servir com ar abe consultar i modificar informacio dels serveis de directori 
 
-**LDAP no és:**
+| Afirmació | C | F |
+|---|:---:|:---:|
+| LDAP és sinònim d'Active Directory | ☐ | ☑ |
+| LDAP permet accedir i consultar informació d'un directori | ☑ | ☐ |
+| OpenLDAP és una implementació d'un servei de directori | ☑ | ☐ |
+| Active Directory utilitza LDAP, entre altres tecnologies | ☑ | ☐ |
 
----
-
-Indica si les afirmacions són certes o falses.
-
-|Afirmació|C|F|
-|---|:-:|:-:|
-|LDAP és sinònim d'Active Directory|☐|☐|
-|LDAP permet accedir i consultar informació d'un directori|☐|☐|
-|OpenLDAP és una implementació d'un servei de directori|☐|☐|
-|Active Directory utilitza LDAP, entre altres tecnologies|☐|☐|
 
 ---
 
