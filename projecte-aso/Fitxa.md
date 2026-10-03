@@ -347,18 +347,3 @@ X Organitzar els usuaris segons les seves necessitats i assignar permisos a aque
 Amb 500 treballadors els grups et deixen definir de una sola vegada els permisos de cada departament sense haver-ho de fer 1 per 1 del rol o projecte. Les altes  baixes i canvis es resolen modificant a quin grup pertanyen els usuaris. Això és més ràpid i segur que mantenir centenars d'assignacions individuals. Els permisos individuals només s'haurien d'utilitzar per a excepcions en concret.
 
 
----
-
----
-
----
-
-Jo **no faria obligatori que acabessin tota la fitxa abans d'explicar res**. La utilitzaria de manera sincronitzada amb la classe:
-
-**0–40 min:** apartats 1–3 → analitzen MusicCloud i els accessos.  
-**40–65 min:** apartats 4–5 → apareix el problema de gestionar permisos individualment.  
-**65–85 min:** explicació curta de **usuari, grup, recurs, permís i mínim privilegi**.  
-**85–110 min:** apartats 6–9 → apliquen immediatament el concepte de grup.  
-**110–120 min:** apartats 10–12 → revisió i tancament.
-
-Hi ha una decisió pedagògica important: a l'apartat 4 **no utilitzo la paraula “grup” fins que l'alumnat ha intentat resoldre el problema**. Això encaixa molt millor amb el cicle que vols seguir: primer tenen el problema, després apareix la necessitat i només aleshores introdueixes el concepte teòric.
