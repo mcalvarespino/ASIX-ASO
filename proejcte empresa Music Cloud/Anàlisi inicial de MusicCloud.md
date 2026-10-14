@@ -124,7 +124,9 @@ S'haurien de fer manualment tots els seus accessos un per un a part de crearli u
 
 ### 4.3.
 
-Caldria retirar tots els permisos de l'antic departament un per un i afegir individualment els del nou.amb la posibilitat de oblidarse de algun a part, podria conservar accés a informació que ja no necessita sense volguer i ja estariem fent les coses malament.
+Què passaria quan una persona canviés de departament?
+
+Si els permisos s'assignen individualment, caldria revisar les carpetes de l'antic departament, retirar els accessos que ja no necessita i assignar els recursos del nou departament. Amb una sola carpeta compartida el canvi és senzill. La dificultat augmenta sobretot quan hi ha moltes carpetes i assignacions diferents: és més fàcil oblidar un permís antic o un accés nou. Els accessos comuns i els de projectes s'han de revisar segons les funcions que la persona mantingui.
 
 ### 4.4.
 
