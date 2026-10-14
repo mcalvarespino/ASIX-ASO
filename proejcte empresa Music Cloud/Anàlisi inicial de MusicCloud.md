@@ -255,7 +255,7 @@ Completa les frases amb les teves paraules.
 
 ### Usuari
 
-Un usuari es una persona que te un compte al sistema
+En el sistema, un usuari es representa mitjançant un compte que permet identificar-lo i assignar-li accessos. Una mateixa persona pot tenir més d'un compte, per exemple un compte habitual i un altre per a tasques d'administració.
 ### Recurs
 
 Es un element del sistema que es vol fer servir o protegir i podria ser cualsevol cosa com una carpet aper exemple 
