@@ -29,14 +29,18 @@ Completa la taula següent.
 
 | Persona | Departament | Funció / responsabilitat | Necessita privilegis especials? Per què? |
 |---|---|---|---|
-| Aina Ciurans | Direcció | Gestió general i presa de decisions de l'empresa. | Sí. Ha de accedir a els espais de Direcció i mirar alguns recursos del departament o departamentals.., però dinformàtica no necesita permissos. |
-| Dídac Gassó | Administració | Factures, contractes i documentació interna. | No. Com a usuari normal o estandard, necessita els recursos comuns entre tots i els del seu departament en concret. |
-| Laia Macias | Administració | Tasques administratives i coordinació del departament. | Sí. Com a responsable necessita acces complet a `gestio_departament` i tenri acces a informacio compartida amb Direcció per consultar-la. |
-| Lluïsa Richart | Suport tècnic | Manteniment, incidències i coordinació de Suport tècnic. | Sí. Es la responsable del departament i necessita accedir a la carpeta de gestió i als scripts ja que es de manteniment també. |
-| Meritxell Reglat | Producció musical | Gestió de continguts musicals i coordinació del departament. | Sí. És la responsable i necessita acces a `gestio_departament`, a més dels recursos que tenen els de producció. |
-| Talia Costas | Informàtica | Administració dels sistemes i coordinació d'Informàtica. | Sí. Com a administradora del sistema necessita gestionar usuaris, grups, permisos, serveis, logs, configuracions i backups es a dir els recursos inormàtics per administrar el sistema o cordinarlo també.... |
-| Alex Soriano | Informàtica | Suport i administració del sistema informàtic. | Sí. Necessita privilegis tecnics per mantenir els sistemes, segons les tasques que se liassignin... |
-| Pere Espinalt | Externs | Col·laboració temporal en recursos concrets. | Necessita un accés especial pero limitat: nomes ha de poder accedir  als recursos publics o compartits que se li assignin, sense informació interna de la empresa ni administracio. |
+| Aina Ciurans | Direcció | Gestió general i presa de decisions. | Sí. Lectura i escriptura als recursos de Direcció i lectura de la informació departamental indicada a la matriu d'accessos. Comparteix amb Administració els documents necessaris a l'espai interdepartamental. El càrrec no li atorga privilegis tècnics d'administració dels sistemes. |
+| Dídac Gassó | Administració | Factures, contractes i documentació interna. | No necessita privilegis de responsable. Té els accessos comuns i els recursos ordinaris d'Administració. |
+| Laia Macias | Administració | **Cap d'Administració.** Coordina el departament i valida documents. | Sí. Lectura i escriptura a `gestio_departament`, a més dels accessos ordinaris del departament. Necessita compartir amb Direcció els informes i documents autoritzats a `/empresa/comu/interdepartamental`. Direcció pot consultar la informació d'Administració segons la matriu d'accessos. |
+| Lluïsa Richart | Suport tècnic | **Cap de Suport tècnic.** Coordina el manteniment i la resolució d'incidències. | Sí. Lectura i escriptura a `gestio_departament` i `scripts`, reservades a la responsable, a més dels recursos ordinaris del departament. |
+| Meritxell Reglat | Producció musical | **Cap de Producció musical.** Coordina el departament i els continguts musicals. | Sí. Lectura i escriptura a `gestio_departament`, a més dels recursos ordinaris de Producció musical. |
+| Talia Costas | Informàtica | **Cap d'Informàtica** i administració dels sistemes. | Sí. Accés a la gestió del seu departament i privilegis tècnics per gestionar comptes, grups, serveis, permisos, registres, configuracions i còpies de seguretat segons les tasques autoritzades. |
+| Alex Soriano | Informàtica | Suport i administració del sistema informàtic. | Sí. Privilegis tècnics ajustats a les tasques de manteniment assignades; no és el cap de departament. |
+| Pere Espinalt | Externs | Col·laboració temporal en recursos concrets. | Accés limitat a l'espai d'intercanvi autoritzat, sense privilegis d'administració ni accés general a informació interna. |
+
+**Caps de departament:** Laia Macias, Lluïsa Richart, Meritxell Reglat i Talia Costas. L'enunciat no assigna cap de departament a Direcció; hi treballen Aina Ciurans i Rut Tornil.
+
+**Informació compartida entre Direcció i Administració:** s'utilitzarà `/empresa/comu/interdepartamental` per als documents autoritzats que hagin de compartir. Direcció hi té L/E i Administració només hi accedeix quan té assignada aquesta col·laboració (SP). Això no dona a Administració accés general a les carpetes privades de Direcció.
 
 ### 1.1. Reflexió
 
