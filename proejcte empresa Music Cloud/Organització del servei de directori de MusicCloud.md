@@ -29,10 +29,12 @@ Proposa les **unitats organitzatives (OU)** principals que utilitzaries a MusicC
 
 | OU | Què contindrà? | Per què la crees? |
 |---|---|---|
-| `Usuaris` | Comptes personals, separats per departament o tipus de relació. | Per administrar els comptes i aplicar configuracions segons el col·lectiu. |
-| `Grups` | Grups de departament, projecte, permisos i administració. | Per trobar-los i mantenir-los ordenats; els permisos s'assignaran als grups, no a l'OU. |
-| `Equips` | Ordinadors clients de sobretaula i portàtils. | Per aplicar configuracions adequades a cada tipus d'equip. |
-| `Xarxa` | Dispositius compatibles amb el directori, si n'hi ha. | Per mantenir-los identificats sense barrejar-los amb ordinadors i servidors. |
+| `Usuaris/Interns` | Comptes personals de la plantilla interna. | Per aplicar les polítiques habituals de treball als comptes interns. |
+| `Usuaris/Externs` | Comptes personals dels col·laboradors externs. | Per aplicar restriccions d'ús i delegar la gestió d'aquests comptes temporals separadament dels interns. La caducitat es configura a cada compte. |
+| `Grups` | Grups de departament, responsables, projectes, permisos i administració. | Per localitzar i gestionar els grups en un únic contenidor estable. |
+| `Equips` | Comptes dels ordinadors clients. | Per aplicar les polítiques dels llocs de treball. |
+| `Servidors` | Comptes dels servidors de directori, fitxers i aplicacions. | Per aplicar una configuració de servidor diferent de la dels equips clients. |
+| `Comptes_de_servei` | Comptes utilitzats per aplicacions i serveis. | Per gestionar-ne els privilegis i restringir-ne l'ús interactiu segons les necessitats de cada servei. |
 
 ### 2.1. Organització dels usuaris
 
@@ -41,14 +43,11 @@ Dibuixa l'estructura que utilitzaries per organitzar els usuaris de MusicCloud.
 ```text
 MusicCloud
 └── Usuaris
-    ├── Direccio (Aina Ciurans, Rut Tornil)
-    ├── Administracio (Dídac Gassó, Laia Macias)
-    ├── Suport_Tecnic (Estel Birosta, Aina Zuriguel, Lluïsa Richart)
-    ├── Produccio_Musical (Roser Alberch, Guillem Adella, Meritxell Reglat,
-    │                     Alícia Monclús, Carles Molins, Eulàlia Galcera)
-    ├── Informatica (Talia Costas, Alex Soriano)
-    └── Externs (Pere Espinalt, Neus Bages)
+    ├── Interns (tota la plantilla dels cinc departaments)
+    └── Externs (Pere Espinalt i Neus Bages)
 ```
+
+No es creen OU per departament perquè no s'han justificat polítiques o delegacions diferents per a cadascun. La pertinença a Administració, Direcció i la resta de departaments es representa amb grups.
 
 ## 3. OU o grup?
 
@@ -56,7 +55,7 @@ Indica quina opció utilitzaries principalment en cada cas.
 
 | Necessitat | OU | Grup |
 |---|:---:|:---:|
-| Organitzar els treballadors d'Administració | ☑ | ☐ |
+| Organitzar els treballadors d'Administració | ☐ | ☑ |
 | Donar accés a la carpeta d'Administració | ☐ | ☑ |
 | Organitzar els ordinadors clients | ☑ | ☐ |
 | Identificar les persones que participen en Campanya Estiu | ☐ | ☑ |
@@ -67,7 +66,7 @@ Indica quina opció utilitzaries principalment en cada cas.
 **Explica amb les teves paraules la diferència principal entre una OU i un grup.**
 
 **OU:**
-és un contenidor/caixa que ordena els objectes(usuaris o el que sigui) en una estructura que te una jeraquia. Ajuda a adminsitrar  i a aplicar polítiques a un conjunt d'objectes dit de un altre manera ajuda a donar certes necesitats o treure a varis objectes o usuaris per exemple a lhora.
+És un contenidor de la jerarquia del directori. Permet organitzar objectes, delegar-ne l'administració i aplicar polítiques als usuaris o equips que hi pertoquin. La ubicació en una OU no concedeix per si mateixa permisos sobre les carpetes compartides.
 
 **Grup:**
 agrupa o reuneix objectes que comparteixen una funcio semblant o una necessitat de permisos iguals/semblants i es fa servir per assignar permisos o privilegis a aquet conjunt, i logicament una persona pot ser de mes de un grup no com les OU.
@@ -113,37 +112,22 @@ Completa les frases següents.
 | Active Directory utilitza LDAP, entre altres tecnologies | ☑ | ☐ |
 
 ## 7. DIT de MusicCloud
-El arbre del directori amb ou i grups que proposo es el següent:
- Els noms representen OU despres els grups i comptes concrets se situarien dins de la branca corresponent.
+L'arbre següent mostra les OU proposades. Els comptes i grups concrets s'ubicaran dins del contenidor corresponent.
 
 ```text
 MusicCloud
 ├── Usuaris
-│   ├── Direccio
-│   ├── Administracio
-│   ├── Suport_Tecnic
-│   ├── Produccio_Musical
-│   ├── Informatica
+│   ├── Interns
 │   └── Externs
 ├── Grups
-│   ├── Departaments
-│   ├── Responsables
-│   ├── Projectes
-│   ├── Permisos
-│   └── Administradors
 ├── Equips
-│   ├── Sobretaula
-│   └── Portatils
 ├── Servidors
-│   ├── Directori
-│   ├── Fitxers
-│   └── Aplicacions
-├── Comptes_de_servei
-└── Xarxa
-    └── Dispositius_integrats
+└── Comptes_de_servei
 ```
 
-Els mòbils i altres aparells sense objecte al directori es controlaran amb un inventari o amb l'eina de gestió corresponent. Només es crearan subdivisions addicionals quan hi hagi una necessitat real de gestió.
+Tots els grups es desen directament a `Grups`: no hi ha OU de projectes, responsables o permisos. `GG_Campanya_Estiu` és un grup temporal; crear-lo o retirar-lo no modifica l'estructura estable d'OU. Els noms dels grups indiquen la seva finalitat.
+
+Tampoc es creen subdivisions per departament, tipus de servidor o tipus d'ordinador sense justificar polítiques o delegacions diferents. Els dispositius sense objecte al directori es controlen a l'inventari; una OU `Xarxa` només es plantejaria si hi hagués dispositius compatibles i una necessitat concreta de gestió.
 
 **Grups inicials i membres:**
 
@@ -176,15 +160,15 @@ Escull **dues decisions** del teu DIT que consideris importants i justifica-les.
 
 ### Decisió 1
 
-Separar `Usuaris` segons els cinc departaments reals i  el extern.
+Separar els comptes personals en `Usuaris/Interns` i `Usuaris/Externs`.
 
-**Justificació:** et deixa localitzar els comptes i ficar criteris de admn. diferents als treballadors i als col·laboradors externs de manera centralitzada. Si MusicCloud creix, es podran afegir departaments sense canviar tota l'estructura
+**Justificació:** els col·laboradors externs necessiten restriccions d'ús i una gestió diferenciada dels comptes interns. Aquesta distinció és estable. Els departaments es representen amb grups perquè no s'han justificat polítiques diferents per departament.
 
 ### Decisió 2
 
-Situar `Grups/Projectes` separat de les OU dels departaments.
+Desar tots els grups a `Grups`, sense crear OU per a projectes o responsables.
 
-**Justificació:** una campanya pot reunir persones d'àrees diferents. El grup `GG_Campanya_Estiu` representa aquesta participació sense haver de moure els comptes de la seva OU principal, aixi que aixo es fa en grups i no amb OU temporal o algo raro 
+**Justificació:** la participació en projectes i les responsabilitats canvien més sovint que l'estructura del directori. Es modifica la pertinença als grups sense moure comptes ni crear OU noves. Una subdivisió només es crearia si una delegació administrativa concreta la fes necessària.
 
 ## 9. Comprovació final
 
@@ -192,7 +176,7 @@ Respon breument.
 
 ### a) Per què no seria una bona idea guardar tots els objectes al mateix nivell?
 
-Perquè costaria localitzar-los, gestionarlos i aplicar configuracions adequades a cada tipus d'objecte es a dir si tots estiguessin al mateix nivell tindrien lo mateix. El problema augmentaria a mesura que creixés l'empresa sobre tot
+Perquè barrejar comptes personals, equips, servidors i comptes de servei en dificultaria la gestió i la delegació administrativa. Separar els tipus d'objecte permet aplicar les polítiques adequades als usuaris i equips, sense afegir subdivisions innecessàries.
 
 ### b) Per què no hauríem d'utilitzar les OU per substituir els grups de permisos?
 
@@ -200,7 +184,7 @@ Perquè una OU classifica i ajuda a administrar objectes dins de la jerarquia qu
 
 ### c) Si MusicCloud passa de 14 a 500 treballadors, què facilitarà més l'administració?
 
-La separació estable per tipus d'objecte i per departament com ho hem decidit muntar , combinada amb grups per als accessos. Permet afegir usuaris i noves àrees sense haver de tornar a fer el directori ni concedir permisos persona per persona i anar molt lent o poderte equivocar.
+La separació estable per tipus d'objecte i per necessitats de gestió, combinada amb grups per departaments, funcions i projectes. Permet incorporar persones o canviar-ne les tasques modificant els grups, sense redissenyar les OU ni concedir permisos persona per persona.
 
 ## Documentació final del sistema
 
@@ -211,31 +195,16 @@ A partir de les decisions preses durant la sessió, deixa definida la proposta q
 ```text
 MusicCloud
 ├── Usuaris
-│   ├── Direccio
-│   ├── Administracio
-│   ├── Suport_Tecnic
-│   ├── Produccio_Musical
-│   ├── Informatica
+│   ├── Interns
 │   └── Externs
 ├── Grups
-│   ├── Departaments
-│   ├── Responsables
-│   ├── Projectes
-│   ├── Permisos
-│   └── Administradors
 ├── Equips
-│   ├── Sobretaula
-│   └── Portatils
 ├── Servidors
-│   ├── Directori
-│   ├── Fitxers
-│   └── Aplicacions
-└── Xarxa
-    └── Dispositius_integrats
+└── Comptes_de_servei
 ```
 ### Criteri utilitzat per organitzar els objectes
 
-Primer es classifiquen segons el tipus d'objecte. Els usuaris es divideixen pel departament principal o la condició d'extern que es els externs clarament, despres els equips, pel tipus, els servidors, per la funció. Les subdivisions noves es crearan quan tirem endevant el projecte si tenim mes necesitats.
+Primer es classifiquen segons el tipus d'objecte. Els comptes personals se separen en interns i externs per les seves necessitats de gestió i polítiques. Els departaments, les responsabilitats i els projectes es representen amb grups dins de `Grups`. Les subdivisions noves només es crearan si cal aplicar polítiques diferents o delegar-ne l'administració.
 
 ### Criteri utilitzat per diferenciar OU i grups
 
