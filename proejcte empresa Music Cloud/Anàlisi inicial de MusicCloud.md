@@ -21,9 +21,7 @@ MusicCloud necessita reorganitzar la seva infraestructura informàtica. Abans d'
 - com podem gestionar aquests accessos de manera eficient.
     
 
----
-
-# 1. Conèixer MusicCloud
+## 1. Conèixer MusicCloud
 
 Consulta la informació disponible sobre els departaments, treballadors i perfils d'usuari de MusicCloud.
 
@@ -44,12 +42,10 @@ Completa la taula següent.
 
 Quines diferències observes entre un **treballador**, un **departament** i una **funció o responsabilitat**?
 
----
 Un treballador es una persona concreta amb un compte d'usuari a la empresa.
 
----
 Un departament es una unitat organitzativa per exemple al windows server que agrupa persones amb un ambit de feina que comparteixen tots
----
+
 Una funcio o responsabilitat descriu que fa una persona i quins accesos ha de tenri o que pot requererir accesos diferents encara que comparteixi departament amb altres treballadors.
 
 Hi ha persones que, pel seu càrrec o funció, necessiten accessos diferents dels altres membres del seu departament?
@@ -60,7 +56,7 @@ X Sí
 Posa'n algun exemple:
 Per exemple la Laia forma part d'Administració com Dídac, pero per exemple com que es la responsable ha de poder accedir a `gestio_departament`. O un altre sexemple seria la Talia, a part de formar part de Informàtica necessita permisos d'administració sobre backups, logs i configuracions.
 
-# 2. Recursos de l'empresa
+## 2. Recursos de l'empresa
 
 Analitza l'estructura d'informació de MusicCloud.
 
@@ -75,9 +71,7 @@ Classifica alguns dels recursos següents segons la seva finalitat.
 | `/empresa/projectes/campanya_estiu` | nomes les persones assignades al projecte. | Per compartir els fitxers de Campanya Estiu entre els que participen (poden ser de diversos departaments). |
 | `/empresa/administracio_sistema/backups` | Els administradors del sistema d'Informàtica. | Per crear, protegir, comprovar i restaurar còpies de seguretat com la carpeta diu. |
 
----
-
-# 3. Qui ha de poder fer què?
+## 3. Qui ha de poder fer què?
 
 | Situació | Accés proposat | Justificació |
 |---|---|---|
@@ -88,8 +82,7 @@ Classifica alguns dels recursos següents segons la seva finalitat.
 | Un membre de Producció musical accedeix a la carpeta d'Administració | **NA** | No forma part d'Administració i no ha de poder accedir a aquests recursos per que no es la feina que li toca. |
 | Un participant de `campanya_estiu` accedeix als fitxers del projecte | **L/E** | En estar assignat al projecte, ha de poder consultar i crear els fitxers a aquest directori logicament. |
 
-
-# 4. Primer problema: com assignem els permisos?
+## 4. Primer problema: com assignem els permisos?
 
 Imagina que MusicCloud té només quatre treballadors:
 
@@ -135,7 +128,7 @@ Proposa una manera de gestionar aquestes persones conjuntament.
 
 Crearia conjunts de persones que tinguin les mateixes necessitats dacces o permissos i assignaria els permisos a cada conjunt. Quan una persona entres, sortis o canvies de funcio o departament, nomes caldria modificar a quin conjunt pertany aixo crec que e spot fer faicl amb windows server active directory.
 
-# 5. Canvis a MusicCloud
+## 5. Canvis a MusicCloud
 
 Ara es produeixen aquests tres canvis:
 
@@ -151,10 +144,6 @@ Quins accessos hauria d'obtenir?
 
 L/E sobre `/empresa/departaments/produccio_musical/compartida`, `artistes` i `cataleg`. No hauria d'accedir a `gestio_departament`, a no ser que fos el responsable en un futur. Els accessos comuns es mantenen i els de projectes només s'afegeixen si hi participa per exemple al destiu o a altres...
 
----
-
----
-
 ### Cas B
 
 S'incorpora una nova treballadora al departament d'Administració.
@@ -162,11 +151,6 @@ S'incorpora una nova treballadora al departament d'Administració.
 Quins accessos caldria configurar?
 
 Caldria crear el compte i la carpeta personal, donar-li els accessos comuns d'una treballadora interna i a les hores assignar L/E a `administracio/compartida` i `administracio/documentacio_interna`; mantenir `gestio_departament` en NA si no és la responsable tambe afegir només els projectes en què participi que pot variar...
----
-
----
-
----
 
 ### Cas C
 
@@ -176,13 +160,7 @@ Què hauríem de fer amb els seus accessos?
 
 Caldria desactivar al moment el compte, retirar-lo de tots els accessos temporals i projectes, a part les contraseñes i les sesiosn referents a la empresa que tingui iniciaceds i conservar o transferir els fitxers necessaris segons la política de l'empresa i la seva informaciò. I clarament no borrarem el compte per traçabilitat simplement el deshabilitarem
 
----
-
----
-
----
-
-# 6. Busquem una solució millor
+## 6. Busquem una solució millor
 
 Suposa ara que podem crear conjunts de persones que comparteixen unes mateixes necessitats d'accés.
 
@@ -207,30 +185,19 @@ Quin avantatge té aquesta solució respecte a donar permisos persona per person
 
 Els permisos es defineixen una sola vegada per a tot el conjunt de persones o usuaris i  això redueix la feina i els errors a part mante criteris sempre iguals i facilita els cambis de departament i aquestes coses
 
----
-
----
-
 ### 6.2.
 
 Si Dídac passa d'Administració a Producció musical, què caldria modificar?
 
 Caldria treure'l del conjunt Administració amb els permisos que te el conjunt i afegir-lo al conjunt Producció musical. Els permisos es ficaram automaticament sense haver d'editar cada un manualment
 
----
-
----
-
 ### 6.3.
 
 Com anomenaries aquests conjunts de persones?
 
 Grups de usuaris
----
 
----
-
-# 7. Primera proposta per a MusicCloud
+## 7. Primera proposta per a MusicCloud
 
 A partir de l'organització de l'empresa, proposa els primers conjunts de persones que crearies.
 
@@ -243,9 +210,8 @@ A partir de l'organització de l'empresa, proposa els primers conjunts de person
 | Suport tècnic | Estel Birosta, Aina Zuriguel i Lluïsa Richart | Per gestionar les incidències i els recursos de Suport tecnic. |
 | Producció musical | Roser Alberch, Guillem Adella, Meritxell Reglat, Alícia Monclús, Carles Molins i Eulàlia Galcera | Per gestionar artistes, els catalegs o els documents de producció. |
 | Informàtica | Talia Costas i Alex Soriano | Per gestionar els recursos del departament i les tasques autoritzades dels de admin de sistema. |
----
 
-# 8. Cas que complica el model
+## 8. Cas que complica el model
 
 Laia treballa al departament d'Administració, però també és la responsable del departament.
 
@@ -256,23 +222,13 @@ Laia treballa al departament d'Administració, però també és la responsable d
 
 Per què?
 
-
 El conjunt Administració ha de donar els accessos comuns a Dídac i Laia, però Laia necessita privilegis que Dídac no ha de tenir, especialment sobre `gestio_departament`. ja que es la cap 
----
-
----
 
 Quina possible solució proposes?
 
 Mantindria Laia al grup Administració i l'afegiria a un segon grup, per exemple `Responsables_Administracio` o `Caps_de_departament`, amb els permisos que necesiti. Així una mateixa persona pot formar part de més d'un grup segons les seves funcions o necesitats
 
----
-
----
-
----
-
-# 9. Un altre cas
+## 9. Un altre cas
 
 Diverses persones de departaments diferents participen temporalment en el projecte:
 
@@ -285,19 +241,11 @@ Creus que hauríem de canviar-les de departament?
 ☐ Sí  
 [x] No
 
-
 Crearia un grup temporal `Campanya_Estiu`, hi afegiria les persones participants sense canviar-les de departament i assignaria al grup L/E sobre `/empresa/projectes/campanya_estiu`. Quan el projecte acabi, es treuran els membres o es desactivarien el grup i l'accés a ell.
 
----
-
----
-
----
-
-# 10. Conclusions
+## 10. Conclusions
 
 Completa les frases amb les teves paraules.
-
 
 ### Usuari
 
@@ -313,7 +261,7 @@ Son les accions que pot fer un usuari o grup sobre un recurs com ara be una carp
 ### Grup
 
 Un grup serveix per reunir diversos usuaris amb necesitats semblants per assignarlis permissos de manera conjunta per exemple o per organització pero llavors seria una OU 
-# 11. Regla de mínim privilegi
+## 11. Regla de mínim privilegi
 
 Analitza aquesta afirmació:
 
@@ -322,25 +270,16 @@ Analitza aquesta afirmació:
 Explica amb les teves paraules què significa.
 
 Vol dir que a un usuari no li has de donar permissos qu eno necesita exemple , si nomes ha de consultar les dades de una carpeta pero no ha de tocar res mes no li donguis escriptura , ja que podria fer algo que no es suposa que ha de fer ja sigui volguent o sense voler, a mes si per exemple li hackejessin el compte tendria mes permissos dels que deuria i podria liarla mes del que es suposa que pot fer...
----
-
----
 
 Posa un exemple relacionat amb MusicCloud.
 
 Pere, com a extern, pot tenir L/E a `/empresa/comu/intercanvi` per compartir documents temporals o ferne de nous,però ha de tenir NA als comunicats interns  als departaments i als backups ja que ell no ha de accedir ni verels de ninguna manera. Quan acabi la col·laboració, el seu accés s'ha de retirar de intercambi comu tambe clarament per que ja no es necesari no son permissos estrictament necesaris...
----
 
----
-
----
-
-# 12. Pregunta final
+## 12. Pregunta final
 
 Imagina que demà MusicCloud passa de 14 treballadors a 500.
 
 Quina de les dues estratègies consideres més adequada?
-
 
 ☐ Assignar permisos individualment a cada usuari.
 

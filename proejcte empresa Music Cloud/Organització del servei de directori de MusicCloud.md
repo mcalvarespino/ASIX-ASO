@@ -7,7 +7,7 @@
 En aquesta sessió hem decidit com organitzar els diferents objectes de MusicCloud dins d'un servei de directori.
 
 Aquesta fitxa forma part de la **documentació de disseny del sistema**. Les decisions que hi indiquis s'utilitzaran posteriorment durant la implantació.
-# 1. Objectes que hem de gestionar
+## 1. Objectes que hem de gestionar
 
 MusicCloud necessita gestionar de manera centralitzada diferents tipus d'objectes.
 
@@ -20,16 +20,10 @@ Indica quins tipus d'objectes consideres que ha de contenir el servei de directo
 | Equips | Ordinadors de sobretaula i portàtils de l'empresa a part impresores sais etc.... |
 | Servidors | Servidor de fitxers, servidor d'aplicacions i servidors del directori. |
 
-
-
 Hi afegiries algun altre tipus d'objecte?
 hi afegiria els dispositius de xarxa que es puguin fucar al directori, com ara alguns NAS per les copeis de seguretat o carpetes compartides, impressores o equips de xarxa auqe aquets es poden ficar 100%. També es poden inventariar mòbils, encaminadors, commutadors i tallafocs, però no tots haurien de ser un objecte al server crec jo 
 
----
-
----
-
-# 2. Organització mitjançant unitats organitzatives
+## 2. Organització mitjançant unitats organitzatives
 
 Proposa les **unitats organitzatives (OU)** principals que utilitzaries a MusicCloud.
 
@@ -40,7 +34,7 @@ Proposa les **unitats organitzatives (OU)** principals que utilitzaries a MusicC
 | `Equips` | Ordinadors clients de sobretaula i portàtils. | Per aplicar configuracions adequades a cada tipus d'equip. |
 | `Xarxa` | Dispositius compatibles amb el directori, si n'hi ha. | Per mantenir-los identificats sense barrejar-los amb ordinadors i servidors. |
 
-## 2.1. Organització dels usuaris
+### 2.1. Organització dels usuaris
 
 Dibuixa l'estructura que utilitzaries per organitzar els usuaris de MusicCloud.
 
@@ -55,9 +49,8 @@ MusicCloud
     ├── Informatica (Talia Costas, Alex Soriano)
     └── Externs (Pere Espinalt, Neus Bages)
 ```
----
 
-# 3. OU o grup?
+## 3. OU o grup?
 
 Indica quina opció utilitzaries principalment en cada cas.
 
@@ -71,25 +64,15 @@ Indica quina opció utilitzaries principalment en cada cas.
 | Donar privilegis als administradors del sistema | ☐ | ☑ |
 | Organitzar els comptes utilitzats per aplicacions | ☑ | ☐ |
 
-### Explica amb les teves paraules la diferència principal entre una OU i un grup.
+**Explica amb les teves paraules la diferència principal entre una OU i un grup.**
 
 **OU:**
 és un contenidor/caixa que ordena els objectes(usuaris o el que sigui) en una estructura que te una jeraquia. Ajuda a adminsitrar  i a aplicar polítiques a un conjunt d'objectes dit de un altre manera ajuda a donar certes necesitats o treure a varis objectes o usuaris per exemple a lhora.
 
----
-
----
-
 **Grup:**
 agrupa o reuneix objectes que comparteixen una funcio semblant o una necessitat de permisos iguals/semblants i es fa servir per assignar permisos o privilegis a aquet conjunt, i logicament una persona pot ser de mes de un grup no com les OU.
 
----
-
----
-
----
-
-# 4. Un mateix usuari: ubicació i pertinença
+## 4. Un mateix usuari: ubicació i pertinença
 
 Considera aquest cas:
 
@@ -105,19 +88,16 @@ Indica:
 **En quina OU ubicaries el seu compte?**
 a `MusicCloud/Usuaris/Administracio`, perquè és el seu departament principal.
 
----
-
-
 A `GG_Administracio` i al grup que dona lectura i escriptura a la carpeta compartida d'Administració que ara no sabem el nom. com participa a la campanya destiu també a `GG_Campanya_Estiu`. Laia Macias, com a cap del departament, tindria a més els permisos de `gestio_departament`; Dídac no els rebria només per ser d'Administració logicament.
 
 **Per què no és contradictori?**
  L'OU indica on es troba el compte dins l'estructura del directori que volem fer. Pero els grups et diuen les seves funcions i els accessos que necessita cad ausuari. Un compte ocupa una ubicació dins aquesta estructura jerarquica de OU, pero pot ser membre de diversos grups alhora amb diversos permissos, en cas de dubte sempre saplica el mes restrictiu si un es lectura i escriptura i a lhora te nomes lectura tindra nome slectura .
 
-# 5. Servei de directori
+## 5. Servei de directori
 Un **servei de directori** és un sistema que guarda i organitza informació sobre les persones i recursos d'una xarxa, i permet consultar-los i administrar-los de manera centralitzada des del mateix server.
 
 A MusicCloud resol el problema de gestionar per separat els usuaris i els accessos de cada ordinador o aplicació a la empresa, aixo vol dir que facilita l'inici de sessió, l'administració dels equips i l'assignació ven feta de permisos i automatització
-# 6. LDAP
+## 6. LDAP
 
 Completa les frases següents.
 
@@ -132,10 +112,7 @@ Completa les frases següents.
 | OpenLDAP és una implementació d'un servei de directori | ☑ | ☐ |
 | Active Directory utilitza LDAP, entre altres tecnologies | ☑ | ☐ |
 
-
----
-
-# 7. DIT de MusicCloud
+## 7. DIT de MusicCloud
 El arbre del directori amb ou i grups que proposo es el següent:
  Els noms representen OU despres els grups i comptes concrets se situarien dins de la branca corresponent.
 
@@ -193,10 +170,7 @@ Per exemple, `GP_Administracio_Gestio_LE` en forma part la **Laia Macias** i don
 | `/empresa/projectes/nou_cataleg` i `migracio_servidors` | Grups de projecte respectius: només els participants assignats. |
 | `/empresa/administracio_sistema/backups` | Grup específic d'administradors autoritzats: ADM. |
 
-
----
-
-# 8. Justificació del disseny
+## 8. Justificació del disseny
 
 Escull **dues decisions** del teu DIT que consideris importants i justifica-les.
 
@@ -212,8 +186,7 @@ Situar `Grups/Projectes` separat de les OU dels departaments.
 
 **Justificació:** una campanya pot reunir persones d'àrees diferents. El grup `GG_Campanya_Estiu` representa aquesta participació sense haver de moure els comptes de la seva OU principal, aixi que aixo es fa en grups i no amb OU temporal o algo raro 
 
-
-# 9. Comprovació final
+## 9. Comprovació final
 
 Respon breument.
 
@@ -229,12 +202,11 @@ Perquè una OU classifica i ajuda a administrar objectes dins de la jerarquia qu
 
 La separació estable per tipus d'objecte i per departament com ho hem decidit muntar , combinada amb grups per als accessos. Permet afegir usuaris i noves àrees sense haver de tornar a fer el directori ni concedir permisos persona per persona i anar molt lent o poderte equivocar.
 
-
-# Documentació final del sistema
+## Documentació final del sistema
 
 A partir de les decisions preses durant la sessió, deixa definida la proposta que utilitzarem inicialment per a MusicCloud.
 
-## Estructura d'unitats organitzatives
+### Estructura d'unitats organitzatives
 
 ```text
 MusicCloud
