@@ -103,7 +103,7 @@ Completa les frases següents.
 
 **LDAP és:** un protocol que permet consultar i modificar informació d'un servei de directori.
 
-**LDAP no és:** el nom d'un producte concret ni un dir literalment d'Active Directory; tampoc és, per si sol, tota la infraestructura del directori, es el servei que serveix per controlar les funcions de ad que es fan servir com ar abe consultar i modificar informacio dels serveis de directori 
+**LDAP no és:** un servei de directori ni un producte concret, i tampoc és sinònim d'Active Directory. És el protocol que utilitzen els clients per accedir a la informació d'un servei de directori i fer-hi operacions, com consultes o modificacions. Active Directory i OpenLDAP són exemples de solucions que utilitzen LDAP.
 
 | Afirmació | C | F |
 |---|:---:|:---:|
