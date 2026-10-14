@@ -1,5 +1,7 @@
 # Fitxa 2 — Organització del servei de directori de MusicCloud
 
+**Informació de referència:** [Informació de MusicCloud](<Informació de MusicCloud.md>).
+
 ## Objectiu
 
 En aquesta sessió hem decidit com organitzar els diferents objectes de MusicCloud dins d'un servei de directori.

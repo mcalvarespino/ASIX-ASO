@@ -10,6 +10,7 @@ El repositori em serveix per documentar el que aprenc, practicar l'administraci�
 
 ## Contingut
 
+- **[Informació de MusicCloud](<proejcte empresa Music Cloud/Informació de MusicCloud.md>):** dades de l'empresa, departaments, treballadors, perfils, carpetes i matriu d'accessos de referència.
 - **Projecte MusicCloud:** anàlisi de les necessitats de l'empresa, usuaris, recursos i accessos, i disseny del servei de directori.
   - [Anàlisi inicial de MusicCloud](<proejcte empresa Music Cloud/Anàlisi inicial de MusicCloud.md>).
   - [Organització del servei de directori de MusicCloud](<proejcte empresa Music Cloud/Organització del servei de directori de MusicCloud.md>).
