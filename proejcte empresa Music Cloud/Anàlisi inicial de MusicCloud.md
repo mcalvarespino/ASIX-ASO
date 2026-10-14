@@ -2,7 +2,7 @@
 
 **Informació de referència:** [Informació de MusicCloud](<Informació de MusicCloud.md>).
 
-**Nom i cognoms:** Marcos Calvar Espino       
+**Nom i cognoms:** Marcos Calvar Espino\
 **Data:** 17/09/26
 **Equip / parella:** N/A
 
@@ -11,15 +11,15 @@
 MusicCloud necessita reorganitzar la seva infraestructura informàtica. Abans d'instal·lar o configurar cap servei, cal entendre:
 
 - qui treballa a l'empresa;
-    
+
 - quines funcions té cada persona;
-    
+
 - quins recursos existeixen;
-    
+
 - qui necessita accedir a cada recurs;
-    
+
 - com podem gestionar aquests accessos de manera eficient.
-    
+
 
 ## 1. Conèixer MusicCloud
 
@@ -102,13 +102,13 @@ No busquis encara una solució tècnica. Pensa només en les necessitats de l'em
 Imagina que MusicCloud té només quatre treballadors:
 
 - Anna
-    
+
 - Biel
-    
+
 - Carla
-    
+
 - David
-    
+
 
 Tots quatre treballen al mateix departament i necessiten accedir a la mateixa carpeta.
 
@@ -236,12 +236,12 @@ Laia treballa al departament d'Administració, però també és la responsable d
 
 És suficient que pertanyi només al conjunt `Administració`?
 
-☐ Sí  
+☐ Sí\
 ☑ No
 
 Per què?
 
-El conjunt Administració ha de donar els accessos comuns a Dídac i Laia, però Laia necessita privilegis que Dídac no ha de tenir, especialment sobre `gestio_departament`. ja que es la cap 
+El conjunt Administració ha de donar els accessos comuns a Dídac i Laia, però Laia necessita privilegis que Dídac no ha de tenir, especialment sobre `gestio_departament`. ja que es la cap
 
 Quina possible solució proposes?
 
@@ -257,7 +257,7 @@ Campanya Estiu
 
 Creus que hauríem de canviar-les de departament?
 
-☐ Sí  
+☐ Sí\
 ☑ No
 
 Si no, com podríem donar-los accés als recursos del projecte?
@@ -274,7 +274,7 @@ En el sistema, un usuari es representa mitjançant un compte que permet identifi
 
 ### Recurs
 
-Es un element del sistema que es vol fer servir o protegir i podria ser cualsevol cosa com una carpet aper exemple 
+Es un element del sistema que es vol fer servir o protegir i podria ser cualsevol cosa com una carpet aper exemple
 
 ### Permís
 

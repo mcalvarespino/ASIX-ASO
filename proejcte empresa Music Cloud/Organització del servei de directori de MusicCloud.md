@@ -185,7 +185,7 @@ Perquè barrejar comptes personals, equips, servidors i comptes de servei en dif
 
 ### b) Per què no hauríem d'utilitzar les OU per substituir els grups de permisos?
 
-Perquè una OU classifica i ajuda a administrar objectes dins de la jerarquia que voem montar, mentre que els permisos es poden concedir a grups. Una persona pot necessitar accessos de diversos projectes sense canviar de departament ni d'OU, sinplement ficantlo o treientlo de un grup amb permissos 
+Perquè una OU classifica i ajuda a administrar objectes dins de la jerarquia que voem montar, mentre que els permisos es poden concedir a grups. Una persona pot necessitar accessos de diversos projectes sense canviar de departament ni d'OU, sinplement ficantlo o treientlo de un grup amb permissos
 
 ### c) Si MusicCloud passa de 14 a 500 treballadors, què facilitarà més l'administració?
 
