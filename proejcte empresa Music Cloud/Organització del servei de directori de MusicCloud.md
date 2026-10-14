@@ -19,6 +19,7 @@ Indica quins tipus d'objectes consideres que ha de contenir el servei de directo
 | Grups | `GG_Administracio`, `GG_Direccio`, `GG_Campanya_Estiu`, `GP_Carpeta_Administracio_Lectura`. |
 | Equips | Ordinadors de sobretaula i portàtils de l'empresa a part impresores sais etc.... |
 | Servidors | Servidor de fitxers, servidor d'aplicacions i servidors del directori. |
+| Comptes de servei | Comptes dedicats a executar aplicacions o serveis, com les tasques de còpia de seguretat que els requereixin. |
 
 Hi afegiries algun altre tipus d'objecte?
 hi afegiria els dispositius de xarxa que es puguin fucar al directori, com ara alguns NAS per les copeis de seguretat o carpetes compartides, impressores o equips de xarxa auqe aquets es poden ficar 100%. També es poden inventariar mòbils, encaminadors, commutadors i tallafocs, però no tots haurien de ser un objecte al server crec jo 
@@ -209,3 +210,9 @@ Primer es classifiquen segons el tipus d'objecte. Els comptes personals se separ
 ### Criteri utilitzat per diferenciar OU i grups
 
 Les **OU** defineixen la ubicació en lestrucgura dels objectes i permeten organitzar-los i aplicar-hi polítiques de gestió. Els **grups** diuen la funcions i permisos vol dir que per exemple, l'accés a una carpeta o la participació en una campanya. Un usuari pot estar en una sola OU de l'arbre(ubicacio en la jerarquia del server) i formar part de diversos grups a lhora per gestionar els seus permissos ne les areas que faci falta.
+
+### Comptes de servei
+
+Els comptes utilitzats per executar aplicacions o serveis es desen a `MusicCloud/Comptes_de_servei`. No són comptes personals dels treballadors. Per a cada compte es documentaran el servei que l'utilitza, el responsable, els equips autoritzats i els recursos estrictament necessaris.
+
+Per exemple, si l'eina de còpies necessita un compte dedicat, es crearà amb els permisos necessaris per executar i verificar les còpies. No se li donarà accés general a totes les carpetes ni privilegis d'administrador del domini per defecte. Se'n restringirà l'inici de sessió interactiu quan el servei no el necessiti i se'n gestionaran les credencials i el cicle de vida.
