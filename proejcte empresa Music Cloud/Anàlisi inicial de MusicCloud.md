@@ -54,7 +54,7 @@ Una **funció o responsabilitat** descriu què fa una persona o de què s'encarr
 
 Hi ha persones que, pel seu càrrec o funció, necessiten accessos diferents dels altres membres del seu departament?
 
-X Sí  
+☑ Sí<br>
 ☐ No
 
 Posa'n algun exemple:
@@ -76,6 +76,17 @@ Classifica alguns dels recursos següents segons la seva finalitat.
 | `/empresa/administracio_sistema/backups` | Els administradors del sistema d'Informàtica. | Per crear, protegir, comprovar i restaurar còpies de seguretat com la carpeta diu. |
 
 ## 3. Qui ha de poder fer què?
+
+Per a cada situació, indica quin nivell d'accés consideres adequat.
+
+Utilitza:
+
+- **NA** → sense accés.
+- **L** → lectura.
+- **L/E** → lectura i escriptura.
+- **ADM** → administració.
+
+No busquis encara una solució tècnica. Pensa només en les necessitats de l'empresa.
 
 | Situació | Accés proposat | Justificació |
 |---|---|---|
@@ -131,6 +142,8 @@ Si els permisos s'assignen individualment, caldria revisar les carpetes de l'ant
 ### 4.4.
 
 Proposa una manera de gestionar aquestes persones conjuntament.
+
+No cal que coneguis encara el nom tècnic de la solució.
 
 Crearia conjunts de persones amb les mateixes necessitats d'accés i assignaria els permisos a cada conjunt. Quan una persona s'incorporés, marxés o canviés de funció o departament, només caldria revisar a quins conjunts pertany.
 
@@ -224,7 +237,7 @@ Laia treballa al departament d'Administració, però també és la responsable d
 És suficient que pertanyi només al conjunt `Administració`?
 
 ☐ Sí  
-[x] No
+☑ No
 
 Per què?
 
@@ -232,7 +245,7 @@ El conjunt Administració ha de donar els accessos comuns a Dídac i Laia, però
 
 Quina possible solució proposes?
 
-Mantindria Laia al grup Administració i l'afegiria a un segon grup, per exemple `Responsables_Administracio` o `Caps_de_departament`, amb els permisos que necesiti. Així una mateixa persona pot formar part de més d'un grup segons les seves funcions o necesitats
+Mantindria Laia al grup Administració i l'afegiria a `Responsables_Administracio`, amb accés a la gestió d'aquest departament. Un grup general de caps pot identificar els responsables, però no ha de donar accés a totes les carpetes de gestió. Així un compte pot pertànyer a diversos grups segons les seves funcions.
 
 ## 9. Un altre cas
 
@@ -245,7 +258,9 @@ Campanya Estiu
 Creus que hauríem de canviar-les de departament?
 
 ☐ Sí  
-[x] No
+☑ No
+
+Si no, com podríem donar-los accés als recursos del projecte?
 
 Crearia un grup temporal `Campanya_Estiu`, hi afegiria les persones participants sense canviar-les de departament i assignaria al grup L/E sobre `/empresa/projectes/campanya_estiu`. Quan el projecte acabi, es treuran els membres o es desactivarien el grup i l'accés a ell.
 
@@ -256,6 +271,7 @@ Completa les frases amb les teves paraules.
 ### Usuari
 
 En el sistema, un usuari es representa mitjançant un compte que permet identificar-lo i assignar-li accessos. Una mateixa persona pot tenir més d'un compte, per exemple un compte habitual i un altre per a tasques d'administració.
+
 ### Recurs
 
 Es un element del sistema que es vol fer servir o protegir i podria ser cualsevol cosa com una carpet aper exemple 
@@ -267,6 +283,7 @@ Son les accions que pot fer un usuari o grup sobre un recurs com ara be una carp
 ### Grup
 
 Un grup serveix per reunir comptes d'usuari amb necessitats d'accés semblants i assignar-los permisos conjuntament. Un compte pot pertànyer a diversos grups segons les funcions que desenvolupa.
+
 ## 11. Regla de mínim privilegi
 
 Analitza aquesta afirmació:
@@ -289,6 +306,6 @@ Quina de les dues estratègies consideres més adequada?
 
 ☐ Assignar permisos individualment a cada usuari.
 
-X Organitzar els usuaris segons les seves necessitats i assignar permisos a aquests conjunts.
+☑ Organitzar els usuaris segons les seves necessitats i assignar permisos a aquests conjunts.
 
 Amb 500 treballadors els grups et deixen definir de una sola vegada els permisos de cada departament sense haver-ho de fer 1 per 1 del rol o projecte. Les altes  baixes i canvis es resolen modificant a quin grup pertanyen els usuaris. Això és més ràpid i segur que mantenir centenars d'assignacions individuals. Els permisos individuals només s'haurien d'utilitzar per a excepcions en concret.

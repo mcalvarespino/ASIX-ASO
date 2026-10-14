@@ -7,6 +7,7 @@
 En aquesta sessió hem decidit com organitzar els diferents objectes de MusicCloud dins d'un servei de directori.
 
 Aquesta fitxa forma part de la **documentació de disseny del sistema**. Les decisions que hi indiquis s'utilitzaran posteriorment durant la implantació.
+
 ## 1. Objectes que hem de gestionar
 
 MusicCloud necessita gestionar de manera centralitzada diferents tipus d'objectes.
@@ -17,12 +18,13 @@ Indica quins tipus d'objectes consideres que ha de contenir el servei de directo
 |---|---|
 | Usuaris | Comptes dels treballadors d'Administració i Direcció; comptes de col·laboradors externs. |
 | Grups | `GG_Administracio`, `GG_Direccio`, `GG_Campanya_Estiu`, `GP_Carpeta_Administracio_Lectura`. |
-| Equips | Ordinadors de sobretaula i portàtils de l'empresa a part impresores sais etc.... |
+| Equips | Comptes dels ordinadors de sobretaula i portàtils de l'empresa. |
 | Servidors | Servidor de fitxers, servidor d'aplicacions i servidors del directori. |
 | Comptes de servei | Comptes dedicats a executar aplicacions o serveis, com les tasques de còpia de seguretat que els requereixin. |
 
 Hi afegiries algun altre tipus d'objecte?
-hi afegiria els dispositius de xarxa que es puguin fucar al directori, com ara alguns NAS per les copeis de seguretat o carpetes compartides, impressores o equips de xarxa auqe aquets es poden ficar 100%. També es poden inventariar mòbils, encaminadors, commutadors i tallafocs, però no tots haurien de ser un objecte al server crec jo 
+
+Sí, els comptes de servei utilitzats per aplicacions. També es poden incorporar altres recursos si la solució de directori els admet i hi ha una necessitat concreta. No s'ha de donar per fet que qualsevol NAS, impressora o dispositiu de xarxa s'integri al directori: els dispositius sense objecte propi es gestionaran mitjançant l'inventari o l'eina corresponent.
 
 ## 2. Organització mitjançant unitats organitzatives
 
@@ -70,7 +72,7 @@ Indica quina opció utilitzaries principalment en cada cas.
 És un contenidor de la jerarquia del directori. Permet organitzar objectes, delegar-ne l'administració i aplicar polítiques als usuaris o equips que hi pertoquin. La ubicació en una OU no concedeix per si mateixa permisos sobre les carpetes compartides.
 
 **Grup:**
-agrupa o reuneix objectes que comparteixen una funcio semblant o una necessitat de permisos iguals/semblants i es fa servir per assignar permisos o privilegis a aquet conjunt, i logicament una persona pot ser de mes de un grup no com les OU.
+Reuneix comptes o altres objectes que comparteixen una funció o una necessitat d'accés. Permet assignar permisos conjuntament. Un compte pot ser membre de diversos grups alhora, independentment de la seva ubicació dins de les OU.
 
 ## 4. Un mateix usuari: ubicació i pertinença
 
@@ -97,6 +99,7 @@ L'OU indica la ubicació del compte dins la jerarquia del directori. Els grups e
 Un **servei de directori** és un sistema que guarda i organitza informació sobre les persones i recursos d'una xarxa, i permet consultar-los i administrar-los de manera centralitzada des del mateix server.
 
 A MusicCloud resol el problema de gestionar per separat els usuaris i els accessos de cada ordinador o aplicació a la empresa, aixo vol dir que facilita l'inici de sessió, l'administració dels equips i l'assignació ven feta de permisos i automatització
+
 ## 6. LDAP
 
 Completa les frases següents.
@@ -149,6 +152,7 @@ Per exemple, `GP_Administracio_Gestio_LE` en forma part la **Laia Macias** i don
 | Recurs | Grup o criteri de permís |
 |---|---|
 | `/empresa/comu/intercanvi` | Grups interns i `GG_Externs`: L/E, per a l'intercanvi temporal. |
+| `/empresa/comu/interdepartamental` | `GG_Direccio`: L/E; grup específic de col·laboració amb les persones autoritzades d'Administració o altres departaments, amb els accessos definits per la tasca (SP). |
 | `/empresa/departaments/administracio/compartida` | `GG_Administracio`: L/E; `GG_Direccio`: L. |
 | `/empresa/departaments/administracio/gestio_departament` | `GP_Administracio_Gestio_LE`: L/E; Direcció: L. |
 | `/empresa/projectes/campanya_estiu` | `GG_Campanya_Estiu`: només els participants assignats. |
@@ -203,13 +207,14 @@ MusicCloud
 ├── Servidors
 └── Comptes_de_servei
 ```
+
 ### Criteri utilitzat per organitzar els objectes
 
 Primer es classifiquen segons el tipus d'objecte. Els comptes personals se separen en interns i externs per les seves necessitats de gestió i polítiques. Els departaments, les responsabilitats i els projectes es representen amb grups dins de `Grups`. Les subdivisions noves només es crearan si cal aplicar polítiques diferents o delegar-ne l'administració.
 
 ### Criteri utilitzat per diferenciar OU i grups
 
-Les **OU** defineixen la ubicació en lestrucgura dels objectes i permeten organitzar-los i aplicar-hi polítiques de gestió. Els **grups** diuen la funcions i permisos vol dir que per exemple, l'accés a una carpeta o la participació en una campanya. Un usuari pot estar en una sola OU de l'arbre(ubicacio en la jerarquia del server) i formar part de diversos grups a lhora per gestionar els seus permissos ne les areas que faci falta.
+Les **OU** defineixen la ubicació dels objectes dins la jerarquia del directori i permeten organitzar-los, delegar-ne la gestió i aplicar polítiques als usuaris o equips. Els **grups** representen departaments, funcions o projectes i permeten assignar els accessos corresponents. Un compte té una única ubicació dins l'arbre d'OU i pot pertànyer a diversos grups alhora.
 
 ### Comptes de servei
 
