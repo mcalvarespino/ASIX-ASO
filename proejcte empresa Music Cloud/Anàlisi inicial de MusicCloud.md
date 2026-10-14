@@ -46,11 +46,11 @@ Completa la taula següent.
 
 Quines diferències observes entre un **treballador**, un **departament** i una **funció o responsabilitat**?
 
-Un treballador es una persona concreta amb un compte d'usuari a la empresa.
+Un **treballador** és una persona que treballa a l'empresa i hi desenvolupa unes tasques.
 
-Un departament es una unitat organitzativa per exemple al windows server que agrupa persones amb un ambit de feina que comparteixen tots
+Un **departament** és una àrea de l'empresa que agrupa persones amb un àmbit de treball compartit, com Administració o Producció musical.
 
-Una funcio o responsabilitat descriu que fa una persona i quins accesos ha de tenri o que pot requererir accesos diferents encara que comparteixi departament amb altres treballadors.
+Una **funció o responsabilitat** descriu què fa una persona o de què s'encarrega. Dues persones del mateix departament poden tenir responsabilitats i necessitats d'accés diferents.
 
 Hi ha persones que, pel seu càrrec o funció, necessiten accessos diferents dels altres membres del seu departament?
 
@@ -130,7 +130,7 @@ Caldria retirar tots els permisos de l'antic departament un per un i afegir indi
 
 Proposa una manera de gestionar aquestes persones conjuntament.
 
-Crearia conjunts de persones que tinguin les mateixes necessitats dacces o permissos i assignaria els permisos a cada conjunt. Quan una persona entres, sortis o canvies de funcio o departament, nomes caldria modificar a quin conjunt pertany aixo crec que e spot fer faicl amb windows server active directory.
+Crearia conjunts de persones amb les mateixes necessitats d'accés i assignaria els permisos a cada conjunt. Quan una persona s'incorporés, marxés o canviés de funció o departament, només caldria revisar a quins conjunts pertany.
 
 ## 5. Canvis a MusicCloud
 
@@ -264,7 +264,7 @@ Son les accions que pot fer un usuari o grup sobre un recurs com ara be una carp
 
 ### Grup
 
-Un grup serveix per reunir diversos usuaris amb necesitats semblants per assignarlis permissos de manera conjunta per exemple o per organització pero llavors seria una OU 
+Un grup serveix per reunir comptes d'usuari amb necessitats d'accés semblants i assignar-los permisos conjuntament. Un compte pot pertànyer a diversos grups segons les funcions que desenvolupa.
 ## 11. Regla de mínim privilegi
 
 Analitza aquesta afirmació:
