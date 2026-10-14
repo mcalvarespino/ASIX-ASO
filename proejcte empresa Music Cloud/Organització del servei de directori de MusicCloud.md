@@ -79,19 +79,19 @@ Considera aquest cas:
 **Dídac Gassó**
 
 - treballa a Administració;
-    
 - participa en el projecte Campanya Estiu.
-    
-
-Indica:
 
 **En quina OU ubicaries el seu compte?**
-a `MusicCloud/Usuaris/Administracio`, perquè és el seu departament principal.
 
-A `GG_Administracio` i al grup que dona lectura i escriptura a la carpeta compartida d'Administració que ara no sabem el nom. com participa a la campanya destiu també a `GG_Campanya_Estiu`. Laia Macias, com a cap del departament, tindria a més els permisos de `gestio_departament`; Dídac no els rebria només per ser d'Administració logicament.
+A `MusicCloud/Usuaris/Interns`, perquè és un treballador intern. El departament s'identifica mitjançant el grup corresponent.
+
+**A quins grups pertanyeria?**
+
+A `GG_Administracio` i `GG_Campanya_Estiu`, perquè treballa a Administració i participa en aquest projecte.
 
 **Per què no és contradictori?**
- L'OU indica on es troba el compte dins l'estructura del directori que volem fer. Pero els grups et diuen les seves funcions i els accessos que necessita cad ausuari. Un compte ocupa una ubicació dins aquesta estructura jerarquica de OU, pero pot ser membre de diversos grups alhora amb diversos permissos, en cas de dubte sempre saplica el mes restrictiu si un es lectura i escriptura i a lhora te nomes lectura tindra nome slectura .
+
+L'OU indica la ubicació del compte dins la jerarquia del directori. Els grups expressen les seves funcions o pertinences. Un compte té una única ubicació dins l'arbre d'OU i pot pertànyer a diversos grups alhora; participar en un projecte no obliga a moure'l d'OU.
 
 ## 5. Servei de directori
 Un **servei de directori** és un sistema que guarda i organitza informació sobre les persones i recursos d'una xarxa, i permet consultar-los i administrar-los de manera centralitzada des del mateix server.
