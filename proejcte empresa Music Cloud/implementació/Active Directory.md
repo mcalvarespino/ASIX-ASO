@@ -46,7 +46,9 @@ Responeu breument:
      > Si s’apaga l’únic controlador, els clients no poden consultar el seu DNS ni fer noves validacions contra el domini. Algunes sessions obertes o inicis amb credencials guardades d’abans poden continuar, però això no vol dir que tots els recursos del domini segueixin disponibles.
 
 4.   Per què un únic controlador de domini és acceptable al laboratori però insuficient en una empresa real?
-    
+
+     > Al laboratori va bé perquè fem proves amb menys màquines i si s’atura podem esperar a tornar-lo a posar en marxa. En una empresa, una avaria o un manteniment podria deixar els treballadors sense els serveis del domini. Per això cal tenir més d’un controlador i no dependre d’un sol servidor.
+
 5.   Per què els departaments no s’han creat com a dominis diferents?
     
 
