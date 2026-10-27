@@ -34,7 +34,9 @@ A partir de l’arquitectura prevista, indiqueu:
 Responeu breument:
 
 1.   Per què el servidor `SRV-AD-01` necessita una adreça IP fixa?
-    
+
+     > Perquè els equips el puguin trobar sempre a la mateixa adreça. Si la IP canviés, els clients podrien tenir guardada l’antiga i no trobar el servidor. Com que també farà de DNS, necessitem que aquesta adreça sigui estable.
+
 2.   Per què els clients del domini han d’utilitzar un servidor DNS capaç de resoldre la zona d’Active Directory?
     
 3.   Què passaria si `SRV-AD-01` estigués apagat?
@@ -69,5 +71,4 @@ Ordeneu les accions següents:
 - comprovar el funcionament del domini.  
     
 
-Justifiqueu breument l’ordre escollit.  
-
+Justifiqueu breument l’ordre escollit.
