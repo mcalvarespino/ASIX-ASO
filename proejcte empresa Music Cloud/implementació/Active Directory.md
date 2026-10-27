@@ -50,7 +50,8 @@ Responeu breument:
      > Al laboratori va bé perquè fem proves amb menys màquines i si s’atura podem esperar a tornar-lo a posar en marxa. En una empresa, una avaria o un manteniment podria deixar els treballadors sense els serveis del domini. Per això cal tenir més d’un controlador i no dependre d’un sol servidor.
 
 5.   Per què els departaments no s’han creat com a dominis diferents?
-    
+
+     > Perquè els departaments són de la mateixa empresa i ens interessa gestionar els comptes i els equips dins del mateix domini. En el nostre disseny ja identifiquem els departaments amb grups i fem servir les OU per organitzar els objectes. Crear un domini per departament complicaria la gestió sense una necessitat que ho justifiqui.
 
 # Planificació de la implantació
 
