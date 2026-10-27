@@ -14,18 +14,19 @@ A partir de l’arquitectura prevista, indiqueu:
     >Musiccloud.local
     
 2.   Quin serà el nom del domini.  
-    >musiccloud.local
+    >musiccloud.local En aquest cas tenim un únic domini, que també és el domini arrel del bosc.
     
 3.   Quin servidor actuarà com a controlador de domini.  
     >SRV-AD-01
 4.   Quin servidor proporcionarà DNS.  
-    >SRV-AD-01
+    >SRV-AD-01que també farà de servidor DNS del domini.
 5.   Quin protocol s’utilitzarà principalment per a l’autenticació.  
-    
+    >Kerberos. És el protocol que s’utilitzarà segurament per veure la identitat dels usuaris quan iniciïn sessió al domini.
     
 6.   Quin protocol permetrà consultar els objectes.  
-      
+      >es LDAP, que permet consultar els objectes del directori i els seus atributs, com els usuaris, els grups i els equips o altres coses...
 7.   7. Quin servei de Windows emmagatzema i administra els objectes del domini?
+    >Active Directory Domain Services, o AD DS. És el servei que guarda i administra els objectes del domini al controlador de domini.
     
 
 # Anàlisi de l’arquitectura
