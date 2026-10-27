@@ -38,7 +38,9 @@ Responeu breument:
      > Perquè els equips el puguin trobar sempre a la mateixa adreça. Si la IP canviés, els clients podrien tenir guardada l’antiga i no trobar el servidor. Com que també farà de DNS, necessitem que aquesta adreça sigui estable.
 
 2.   Per què els clients del domini han d’utilitzar un servidor DNS capaç de resoldre la zona d’Active Directory?
-    
+
+     > Perquè han de trobar el domini musiccloud.local i els seus serveis, no només resoldre pàgines d’Internet. Si fiquem un DNS que no coneix aquesta zona, els clients poden tenir problemes per unir-se al domini o iniciar sessió.
+
 3.   Què passaria si `SRV-AD-01` estigués apagat?
     
 4.   Per què un únic controlador de domini és acceptable al laboratori però insuficient en una empresa real?
