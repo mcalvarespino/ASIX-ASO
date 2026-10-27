@@ -42,7 +42,9 @@ Responeu breument:
      > Perquè han de trobar el domini musiccloud.local i els seus serveis, no només resoldre pàgines d’Internet. Si fiquem un DNS que no coneix aquesta zona, els clients poden tenir problemes per unir-se al domini o iniciar sessió.
 
 3.   Què passaria si `SRV-AD-01` estigués apagat?
-    
+
+     > Si s’apaga l’únic controlador, els clients no poden consultar el seu DNS ni fer noves validacions contra el domini. Algunes sessions obertes o inicis amb credencials guardades d’abans poden continuar, però això no vol dir que tots els recursos del domini segueixin disponibles.
+
 4.   Per què un únic controlador de domini és acceptable al laboratori però insuficient en una empresa real?
     
 5.   Per què els departaments no s’han creat com a dominis diferents?
