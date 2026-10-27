@@ -78,4 +78,23 @@ Ordeneu les accions següents:
 - comprovar el funcionament del domini.  
     
 
+> Jo ho faria en aquest ordre:
+>
+> 1. Preparar la xarxa del servidor.
+> 2. Instal·lar AD DS.
+> 3. Crear el bosc i el domini.
+> 4. Comprovar el DNS.
+> 5. Crear les unitats organitzatives.
+> 6. Crear els grups.
+> 7. Crear els usuaris.
+> 8. Assignar els usuaris als grups.
+> 9. Unir el client al domini.
+> 10. Comprovar el funcionament del domini.
+
 Justifiqueu breument l’ordre escollit.
+
+> Primer preparem la xarxa, el nom, la IP fixa i l’hora del servidor. Després instal·lem el rol AD DS i ja podem promocionar el servidor per crear el bosc i el domini.
+>
+> Un cop creat el domini comprovem el DNS perquè els clients el puguin trobar. Després creem les OU per tenir l’organització preparada i hi anem afegint els grups i els usuaris. Per assignar un usuari a un grup han d’existir tots dos.
+>
+> Al final unim el client i comprovem que podem iniciar sessió i que els serveis del domini funcionen. Així anem comprovant cada part abans de donar la implantació per acabada.
