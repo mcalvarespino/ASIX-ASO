@@ -133,6 +133,33 @@ Promocioneu el servidor a controlador de domini amb les opcions següents:
 | Controlador de domini de només lectura | No                 |
 | Reinici final                          | Sí                 |
 Definiu una contrasenya segura per al mode de restauració de serveis de directori.
+
+> He creat el bosc i el domini musiccloud.local. La contrasenya DSRM l’he entrat sense deixar-la escrita al document.
+
+```powershell
+PS C:\Users\Administrador> $dsrm = Read-Host 'Contrasenya DSRM' -AsSecureString
+PS C:\Users\Administrador> $parameters = @{
+    DomainName = 'musiccloud.local'
+    DomainNetbiosName = 'MUSICCLOUD'
+    InstallDns = $true
+    SafeModeAdministratorPassword = $dsrm
+}
+PS C:\Users\Administrador> Test-ADDSForestInstallation @parameters
+Message        : Operación completada correctamente.
+Context        : Test.VerifyDcPromoCore.DCPromo.General.3
+RebootRequired : False
+Status         : Success
+
+PS C:\Users\Administrador> Install-ADDSForest @parameters -Force
+Message                             Context           RebootRequired Status
+-------                             -------           -------------- ------
+Operación completada correctamente. DCPromo.General.3          False Success
+```
+
+> Ha sortit l’avís de delegació DNS, però no cal fer res perquè és un bosc nou. En acabar s’ha reiniciat el servidor. És un controlador amb escriptura i catàleg global.
+
+Procediment: [Install-ADDSForest de Microsoft](https://learn.microsoft.com/en-us/powershell/module/addsdeployment/install-addsforest?view=windowsserver2022-ps).
+
 ### Part 4. Verificació
 
 Després del reinici, comproveu:
