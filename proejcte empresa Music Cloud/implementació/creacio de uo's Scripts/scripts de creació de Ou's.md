@@ -106,3 +106,38 @@ PS C:\Users\Administrador>
 ```
 
 > funciona amb els dos ordres. A la segona execucio detecta la mateixa UO i no la duplica.
+
+## 5. Nom obligatori i ruta per defecte
+
+> modifico el quart posant el nom obligatori. Si no passo ruta, fa servir el domini musiccloud.local.
+
+Script: [crear_uo_05.ps1](../scripts/crear_uo_05.ps1)
+
+```powershell
+param (
+    [Parameter(Mandatory=$true)]
+    [string]$nomOU,
+    [string]$ruta = "DC=musiccloud,DC=local"
+)
+```
+
+> per provar la ruta per defecte i el nom obligatori ficarem aquestes comandes:
+
+```powershell
+PS C:\Users\Administrador> .\scripts\crear_uo_05.ps1 -nomOU MusicCloud
+Ja existeix: MusicCloud
+PS C:\Users\Administrador> .\scripts\crear_uo_05.ps1
+
+cmdlet crear_uo_05.ps1 en la posición 1 de la canalización de comandos
+Proporcione valores para los parámetros siguientes:
+nomOU: ProvaNomObligatori
+Creada: ProvaNomObligatori
+PS C:\Users\Administrador> Get-ADOrganizationalUnit -Identity "OU=ProvaNomObligatori,DC=musiccloud,DC=local" | Select-Object Name,DistinguishedName | Format-List
+
+Name              : ProvaNomObligatori
+DistinguishedName : OU=ProvaNomObligatori,DC=musiccloud,DC=local
+
+PS C:\Users\Administrador>
+```
+
+> si no escric el nom, el demana. La UO s'ha creat directament al domini perquè no he passat cap ruta.
