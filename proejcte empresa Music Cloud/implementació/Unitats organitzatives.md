@@ -93,6 +93,40 @@ Desenvolupament
 Sistemes
 Direccio
 ```
+
+> per crear els departaments dins d'Usuaris ficarem les següents comandes:
+
+```powershell
+PS C:\Users\Administrador> New-ADOrganizationalUnit -Name "Administracio" -Path "OU=Usuaris,OU=MusicCloud,DC=musiccloud,DC=local"
+PS C:\Users\Administrador> New-ADOrganizationalUnit -Name "Comercial" -Path "OU=Usuaris,OU=MusicCloud,DC=musiccloud,DC=local"
+PS C:\Users\Administrador> New-ADOrganizationalUnit -Name "Desenvolupament" -Path "OU=Usuaris,OU=MusicCloud,DC=musiccloud,DC=local"
+PS C:\Users\Administrador> New-ADOrganizationalUnit -Name "Sistemes" -Path "OU=Usuaris,OU=MusicCloud,DC=musiccloud,DC=local"
+PS C:\Users\Administrador> New-ADOrganizationalUnit -Name "Direccio" -Path "OU=Usuaris,OU=MusicCloud,DC=musiccloud,DC=local"
+PS C:\Users\Administrador> Get-ADOrganizationalUnit -Filter * -SearchBase "OU=Usuaris,OU=MusicCloud,DC=musiccloud,DC=local" -SearchScope OneLevel | Select-Object Name,DistinguishedName | Format-List
+
+Name              : Administracio
+DistinguishedName : OU=Administracio,OU=Usuaris,OU=MusicCloud,DC=musiccloud,DC=
+                    local
+
+Name              : Comercial
+DistinguishedName : OU=Comercial,OU=Usuaris,OU=MusicCloud,DC=musiccloud,DC=loca
+                    l
+
+Name              : Desenvolupament
+DistinguishedName : OU=Desenvolupament,OU=Usuaris,OU=MusicCloud,DC=musiccloud,D
+                    C=local
+
+Name              : Direccio
+DistinguishedName : OU=Direccio,OU=Usuaris,OU=MusicCloud,DC=musiccloud,DC=local
+
+Name              : Sistemes
+DistinguishedName : OU=Sistemes,OU=Usuaris,OU=MusicCloud,DC=musiccloud,DC=local
+
+PS C:\Users\Administrador>
+```
+
+> aqui surten els cinc departaments dins d'Usuaris.
+
 ## Part 4. Creació de les UO d’equips
 
 Dins de la UO `Equips`, creeu les UO següents:
