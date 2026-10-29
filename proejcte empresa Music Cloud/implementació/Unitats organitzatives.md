@@ -274,3 +274,33 @@ PS C:\Users\Administrador>
 ```
 
 > MusicCloud ja torna a estar creada.
+
+### 7.3. Crear MusicCloud i les UO de primer nivell
+
+> per fer aixo farem servir aquest script, que crea MusicCloud i despres recorre els tres noms amb un foreach.
+
+Script: [7_3_crear_estructura.ps1](scripts/7_3_crear_estructura.ps1)
+
+> per provar-lo des de zero primer he eliminat la UO del punt anterior:
+
+```powershell
+PS C:\Users\Administrador> .\scripts\7_1_eliminar_uo.ps1
+UO MusicCloud i descendents eliminades.
+PS C:\Users\Administrador> .\scripts\7_3_crear_estructura.ps1
+UO MusicCloud creada.
+UO Usuaris creada.
+UO Equips creada.
+UO Grups creada.
+PS C:\Users\Administrador> Get-ADOrganizationalUnit -Filter * -SearchBase "OU=MusicCloud,DC=musiccloud,DC=local" | Select-Object Name
+
+Name
+----
+MusicCloud
+Usuaris
+Equips
+Grups
+
+PS C:\Users\Administrador>
+```
+
+> aqui es veu que ha creat les quatre UO.
