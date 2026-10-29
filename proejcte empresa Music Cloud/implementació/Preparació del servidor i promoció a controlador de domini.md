@@ -165,42 +165,109 @@ Procediment: [Install-ADDSForest de Microsoft](https://learn.microsoft.com/en-us
 Després del reinici, comproveu:
 
 1. Que el servidor s’anomena `SRV-AD-01`.
+>ficarem la següent comanda per verificar que sanomena aixi:
+```powershell
+PS C:\Users\Administrador> hostname
+SRV-AD-01
+PS C:\Users\Administrador>
+```
     
 2. Que el domini `musiccloud.local` existeix.
+>per comprovar que existeixi fem servir aquesta comanda:
+```powershell
+PS C:\Users\Administrador> Get-ADDomain | Select-Object DNSRoot
+
+DNSRoot
+-------
+musiccloud.local
+
+
+PS C:\Users\Administrador>
+```
     
 3. Que el servidor és controlador de domini.
-    
+    >per veure aixo farem servir aquesta comanda
+```powershell
+    PS C:\Users\Administrador> Get-ADDomainController -Identity SRV-AD-01 | Select-Object Name,Domain
+
+Name      Domain
+----      ------
+SRV-AD-01 musiccloud.local
+
+
+PS C:\Users\Administrador>
+```
+>aqui es veu que es controlador de domini.
 4. Que el servei DNS està instal·lat.
+```powershell
+
+PS C:\Users\Administrador> Get-WindowsFeature DNS
+
+Display Name                                            Name
+------------                                            ----
+[X] Servidor DNS                                        DNS
+
+
+PS C:\Users\Administrador>
+
+```
+>aqui es veu que si que esta instalat. hem fet servir la comand agetwindowsfeature.
     
 5. Que el DNS resol correctament el domini.
-    
-    
+>Per veureu ficarem la següent comanda:
+```powershell
+PS C:\Users\Administrador> Resolve-DnsName musiccloud.local -Type A -Server 192.168.56.115
+
+Name                                           Type   TTL   Section    IPAd
+                                                                       dres
+                                                                       s
+----                                           ----   ---   -------    ----
+musiccloud.local                               A      600   Answer     192.
+                                                                       168.
+                                                                       56.1
+                                                                       15
+
+
+PS C:\Users\Administrador>
+```
+>aqui es veu que resol perfectament el seu domini.
 Completeu la taula següent. Adjunta la comanda que has utilitzat per a cada una de les comprovacions.
 
-| Comprovació                          | Resultat |
-| ------------------------------------ | -------- |
-| Nom del servidor                     |          |
-| IP fixa configurada                  |          |
-| AD DS instal·lat                     |          |
-| Domini creat                         |          |
-| DNS instal·lat                       |          |
-| Resolució de `musiccloud.local`      |          |
-| Eines d’Active Directory disponibles |          |
+| Comprovació | Resultat | Comanda utilitzada |
+| --- | --- | --- |
+| Nom del servidor | SRV-AD-01 | `hostname` |
+| IP fixa configurada | 192.168.56.115 /24, Manual | `Get-NetIPAddress -InterfaceAlias "Ethernet 2" -AddressFamily IPv4` |
+| AD DS instal·lat | Installed | `Get-WindowsFeature AD-Domain-Services` |
+| Domini creat | musiccloud.local | `Get-ADDomain \| Select-Object DNSRoot` |
+| DNS instal·lat | Sí, surt marcat amb [X] | `Get-WindowsFeature DNS` |
+| Resolució de musiccloud.local | Resol a 192.168.56.115 | `Resolve-DnsName musiccloud.local -Type A -Server 192.168.56.115` |
+| Eines d’Active Directory disponibles | RSAT-AD-Tools instal·lat | `Get-WindowsFeature RSAT-AD-Tools` |
 
 ## Preguntes
 
 Responeu breument:
 
 1. Per què `SRV-AD-01` necessita una IP fixa?
-    
+
+> perquè els clients el trobin sempre a la mateixa IP i puguin accedir al domini i al DNS.
+
 2. Per què és necessari DNS en un domini Active Directory?
-    
+
+> perquè els equips puguin trobar el controlador de domini i els serveis de l’AD.
+
 3. Quina diferència hi ha entre instal·lar AD DS i promocionar el servidor a controlador de domini?
-    
+
+> instal·lar AD DS posa el rol al servidor. Promocionar-lo configura l’AD i converteix el servidor en controlador de domini.
+
 4. Quin és el nom del domini creat?
-    
+
+> musiccloud.local
+
 5. Quin és el nom NetBIOS del domini?
-    
+
+> MUSICCLOUD
+
 6. Per què no és recomanable que els clients del domini utilitzin un DNS extern com a DNS principal?
-    
+
+> perquè el DNS extern no coneix el nostre domini intern i els clients podrien tenir problemes per trobar-lo i iniciar sessió. Han de fer servir el DNS de SRV-AD-01.
 
