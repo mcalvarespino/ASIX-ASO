@@ -96,6 +96,30 @@ PS C:\Users\Administrador> Get-Date -Format 'dd/MM/yyyy HH:mm:ss'
 
 Localitzeu i utilitzeu el procediment adequat per instal·lar el rol AD DS i promocionar el servidor a controlador de domini. Documenteu breument les comandes o passos utilitzats.
 
+> He instal·lat AD DS, DNS i les eines per administrar el domini.
+
+```powershell
+PS C:\Users\Administrador> Install-WindowsFeature AD-Domain-Services,DNS -IncludeManagementTools
+Success Restart Needed Exit Code
+------- -------------- ---------
+True    No             Success
+
+PS C:\Users\Administrador> Get-WindowsFeature AD-Domain-Services,DNS,RSAT-AD-Tools | Select-Object Name,InstallState
+Name               InstallState
+----               ------------
+AD-Domain-Services    Installed
+DNS                   Installed
+RSAT-AD-Tools         Installed
+```
+
+> He deixat el DNS escoltant només a la 192 per no donar la IP de la NAT als clients.
+
+```powershell
+PS C:\Users\Administrador> dnscmd.exe localhost /ResetListenAddresses 192.168.56.115
+Direcciones de escucha restablecidas correctamente.
+Comando completado correctamente.
+```
+
 ### Part 3. Promoció a controlador de domini
 Promocioneu el servidor a controlador de domini amb les opcions següents:
 
