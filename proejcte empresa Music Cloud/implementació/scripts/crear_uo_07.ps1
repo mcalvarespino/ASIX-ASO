@@ -6,28 +6,6 @@ param (
     [string[]]$descendents
 )
 
-Import-Module ActiveDirectory
-
-foreach ($nomFill in $descendents) {
-    if ([string]::IsNullOrWhiteSpace($nomFill) -or $nomFill.Trim() -like "OU=*") {
-        Write-Host "Escriu els noms de les UO filles sense OU= i sense deixar-los buits."
-        return
-    }
-}
-
-if ([string]::IsNullOrWhiteSpace($nomOU) -or [string]::IsNullOrWhiteSpace($ruta)) {
-    Write-Host "El nom i la ruta no poden estar buits."
-    return
-}
-
-$nomOU = $nomOU.Trim()
-$ruta = $ruta.Trim()
-
-if ($nomOU -like "OU=*") {
-    Write-Host "Escriu nomes el nom, sense OU=."
-    return
-}
-
 try {
     $pare = Get-ADObject -Identity $ruta -ErrorAction Stop
 }
@@ -41,22 +19,15 @@ if ($pare.ObjectClass -ne "domainDNS" -and $pare.ObjectClass -ne "organizational
     return
 }
 
-try {
-    $OU = Get-ADOrganizationalUnit -Filter {Name -eq $nomOU} -SearchBase $ruta -SearchScope OneLevel -ErrorAction Stop
-}
-catch {
-    Write-Host "No puc consultar les UO de la ruta."
+$nomOU = $nomOU.Trim()
+if ($nomOU -eq "" -or $nomOU -like "OU=*") {
+    Write-Host "Escriu nomes el nom, sense OU= i sense deixar-lo buit."
     return
 }
 
+$OU = Get-ADOrganizationalUnit -Filter {Name -eq $nomOU} -SearchBase $ruta -SearchScope OneLevel -ErrorAction Stop
 if (-not $OU) {
-    try {
-        $OU = New-ADOrganizationalUnit -Name $nomOU -Path $ruta -PassThru -ErrorAction Stop
-    }
-    catch {
-        Write-Host "No s'ha pogut crear la UO: $nomOU"
-        return
-    }
+    $OU = New-ADOrganizationalUnit -Name $nomOU -Path $ruta -PassThru -ErrorAction Stop
     Write-Host "Creada: $nomOU"
 }
 else {
@@ -64,26 +35,16 @@ else {
 }
 
 $rutaFilles = $OU.DistinguishedName
-
 foreach ($nomFill in $descendents) {
-    $nomFill = $nomFill.Trim()
-
-    try {
-        $filla = Get-ADOrganizationalUnit -Filter {Name -eq $nomFill} -SearchBase $rutaFilles -SearchScope OneLevel -ErrorAction Stop
-    }
-    catch {
-        Write-Host "No puc consultar les UO filles."
+    $nomFill = ([string]$nomFill).Trim()
+    if ($nomFill -eq "" -or $nomFill -like "OU=*") {
+        Write-Host "Escriu nomes el nom de cada UO filla, sense OU= i sense deixar-lo buit."
         return
     }
 
+    $filla = Get-ADOrganizationalUnit -Filter {Name -eq $nomFill} -SearchBase $rutaFilles -SearchScope OneLevel -ErrorAction Stop
     if (-not $filla) {
-        try {
-            New-ADOrganizationalUnit -Name $nomFill -Path $rutaFilles -ErrorAction Stop
-        }
-        catch {
-            Write-Host "No s'ha pogut crear la UO: $nomFill"
-            return
-        }
+        New-ADOrganizationalUnit -Name $nomFill -Path $rutaFilles -ErrorAction Stop
         Write-Host "Creada: $nomFill"
     }
     else {
