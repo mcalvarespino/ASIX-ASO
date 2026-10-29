@@ -142,37 +142,39 @@ PS C:\Users\Administrador>
 
 > si no escric el nom, el demana. La UO s'ha creat directament al domini perquè no he passat cap ruta.
 
-## 6. Comprovar els casos abans de crear
+## 6. Comprovar la ruta i crear nomes si falta
 
-> parteixo del cinque i afegeixo comprovacions del nom i la ruta. Si alguna cosa no esta be mostra un missatge i s'atura.
+> parteixo del cinque. Primer comprovo que la ruta existeix i que es el domini o una UO. Despres miro el nom i nomes creo la UO si no existeix.
 
 Script: [crear_uo_06.ps1](../scripts/crear_uo_06.ps1)
 
-> faig servir Get-ADObject per comprovar la ruta, perquè pot ser el domini o una UO. Despres busco el nom nomes dins d'aquella ruta.
-
-> per comprovar els casos ficarem aquestes comandes:
+> per provar que es pot repetir ficarem aquestes comandes:
 
 ```powershell
-PS C:\Users\Administrador> .\scripts\crear_uo_06.ps1 -nomOU ProvaValidacio -ruta "OU=ProvesScripts,DC=musiccloud,DC=local"
-Creada: ProvaValidacio
-PS C:\Users\Administrador> .\scripts\crear_uo_06.ps1 -nomOU ProvaValidacio -ruta "OU=ProvesScripts,DC=musiccloud,DC=local"
-Ja existeix: ProvaValidacio
-PS C:\Users\Administrador> .\scripts\crear_uo_06.ps1 -nomOU Prova -ruta "OU=NoExisteix,DC=musiccloud,DC=local"
-No puc accedir a la ruta: OU=NoExisteix,DC=musiccloud,DC=local
-PS C:\Users\Administrador> .\scripts\crear_uo_06.ps1 -nomOU " "
-El nom i la ruta no poden estar buits.
-PS C:\Users\Administrador> .\scripts\crear_uo_06.ps1 -nomOU "OU=Prova"
-Escriu nomes el nom, sense OU=.
-PS C:\Users\Administrador> .\scripts\crear_uo_06.ps1 -nomOU Prova -ruta "CN=Users,DC=musiccloud,DC=local"
-La ruta ha de ser el domini o una UO.
-PS C:\Users\Administrador> .\scripts\crear_uo_06.ps1 -nomOU MusicCloud
-Ja existeix: MusicCloud
-PS C:\Users\Administrador> .\scripts\crear_uo_06.ps1 -nomOU Prova -ruta " "
-El nom i la ruta no poden estar buits.
+PS C:\Users\Administrador> .\scripts\crear_uo_06.ps1 -nomOU ProvaSimple -ruta "OU=ProvesScripts,DC=musiccloud,DC=local"
+Creada: ProvaSimple
+PS C:\Users\Administrador> .\scripts\crear_uo_06.ps1 -nomOU ProvaSimple -ruta "OU=ProvesScripts,DC=musiccloud,DC=local"
+Ja existeix: ProvaSimple
 PS C:\Users\Administrador>
 ```
 
-> crea la UO quan toca, no la duplica i controla les dades incorrectes sense treure un error llarg de PowerShell. El nom es passa sense OU=.
+> ara provo una ruta que no existeix i noms incorrectes. Si fallen la ruta i el nom, primer avisa de la ruta:
+
+```powershell
+PS C:\Users\Administrador> .\scripts\crear_uo_06.ps1 -nomOU " " -ruta "OU=NoExisteix,DC=musiccloud,DC=local"
+No puc accedir a la ruta: OU=NoExisteix,DC=musiccloud,DC=local
+PS C:\Users\Administrador> .\scripts\crear_uo_06.ps1 -nomOU " "
+Escriu nomes el nom, sense OU= i sense deixar-lo buit.
+PS C:\Users\Administrador> .\scripts\crear_uo_06.ps1 -nomOU "OU=Prova"
+Escriu nomes el nom, sense OU= i sense deixar-lo buit.
+PS C:\Users\Administrador> .\scripts\crear_uo_06.ps1 -nomOU Prova -ruta "CN=Users,DC=musiccloud,DC=local"
+La ruta ha de ser el domini o una UO.
+PS C:\Users\Administrador> .\scripts\crear_uo_06.ps1 -nomOU Prova -ruta " "
+No puc accedir a la ruta:
+PS C:\Users\Administrador>
+```
+
+> es idempotent: si el torno a executar no duplica la UO.
 
 ## 7. Crear una UO amb les seves UO filles
 
