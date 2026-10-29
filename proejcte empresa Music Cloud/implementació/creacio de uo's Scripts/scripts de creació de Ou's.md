@@ -81,3 +81,28 @@ PS C:\Users\Administrador>
 ```
 
 > aqui es veu que l'ha creat a la ruta que li hem passat. En aquest script encara importa l'ordre: primer el nom i despres la ruta.
+
+## 4. L'ordre dels arguments no importa
+
+> parteixo del tercer i canvio els args per param, com a l'exemple del profe. Ara els arguments tenen nom.
+
+Script: [crear_uo_04.ps1](../scripts/crear_uo_04.ps1)
+
+```powershell
+param (
+    [string]$nomOU,
+    [string]$ruta
+)
+```
+
+> per comprovar-ho executarem el script amb els dos ordres:
+
+```powershell
+PS C:\Users\Administrador> .\scripts\crear_uo_04.ps1 -nomOU ProvaOrdre -ruta "OU=ProvesScripts,DC=musiccloud,DC=local"
+Creada: ProvaOrdre
+PS C:\Users\Administrador> .\scripts\crear_uo_04.ps1 -ruta "OU=ProvesScripts,DC=musiccloud,DC=local" -nomOU ProvaOrdre
+Ja existeix: ProvaOrdre
+PS C:\Users\Administrador>
+```
+
+> funciona amb els dos ordres. A la segona execucio detecta la mateixa UO i no la duplica.
