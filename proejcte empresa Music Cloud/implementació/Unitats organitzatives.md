@@ -37,6 +37,21 @@ MusicCloud
 ```
 Aquesta UO serà el contenidor principal de l’estructura de l’empresa.
 
+> per crear la UO principal ficarem la següent comanda:
+
+```powershell
+PS C:\Users\Administrador> New-ADOrganizationalUnit -Name "MusicCloud" -Path "DC=musiccloud,DC=local"
+PS C:\Users\Administrador> Get-ADOrganizationalUnit -Identity "OU=MusicCloud,DC=musiccloud,DC=local" | Select-Object Name,DistinguishedName
+
+Name       DistinguishedName
+----       -----------------
+MusicCloud OU=MusicCloud,DC=musiccloud,DC=local
+
+PS C:\Users\Administrador>
+```
+
+> aqui es veu que MusicCloud ja esta creada dins del domini.
+
 ## Part 2. Creació de les UO de primer nivell
 
 Dins de la UO `MusicCloud`, creeu les UO següents:
