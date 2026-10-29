@@ -254,3 +254,23 @@ PS C:\Users\Administrador>
 ```
 
 > el resultat es 0, per tant MusicCloud ja no existeix. Als següents punts la tornare a crear.
+
+### 7.2. Crear la UO principal
+
+> per crear nomes MusicCloud ficarem aquest script. El nom i la ruta estan guardats en variables, com als apunts.
+
+Script: [7_2_crear_principal.ps1](scripts/7_2_crear_principal.ps1)
+
+```powershell
+PS C:\Users\Administrador> .\scripts\7_2_crear_principal.ps1
+UO MusicCloud creada.
+PS C:\Users\Administrador> Get-ADOrganizationalUnit -Identity "OU=MusicCloud,DC=musiccloud,DC=local" | Select-Object Name,DistinguishedName
+
+Name       DistinguishedName
+----       -----------------
+MusicCloud OU=MusicCloud,DC=musiccloud,DC=local
+
+PS C:\Users\Administrador>
+```
+
+> MusicCloud ja torna a estar creada.
