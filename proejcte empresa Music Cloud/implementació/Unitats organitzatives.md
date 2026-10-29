@@ -234,3 +234,23 @@ Responeu breument:
 - 7.2. Crea un script que crei l'OU principal (musiccloud).
 - 7.3. Crea un script que crei l'OU principal i les OUs descendents: Usuaris, Equips i Grups
 - 7.4. Crea un script que creï l'OU principal si no existeix i que creï únicament les UO descendents que encara no existeixin. El script s'ha de poder executar més d'una vegada sense generar errors ni duplicar objectes.
+
+### 7.1. Eliminar les UO
+
+> per eliminar les UO de la practica farem servir aquest script. Treu la proteccio de MusicCloud i elimina les UO de dins. Si hi ha altres objectes, s'atura.
+
+Script: [7_1_eliminar_uo.ps1](scripts/7_1_eliminar_uo.ps1)
+
+```powershell
+PS C:\Users\Administrador> .\scripts\7_1_eliminar_uo.ps1
+UO MusicCloud i descendents eliminades.
+PS C:\Users\Administrador> Get-ADOrganizationalUnit -Filter "Name -eq 'MusicCloud'" -SearchBase "DC=musiccloud,DC=local" -SearchScope OneLevel | Measure-Object | Select-Object Count
+
+Count
+-----
+    0
+
+PS C:\Users\Administrador>
+```
+
+> el resultat es 0, per tant MusicCloud ja no existeix. Als següents punts la tornare a crear.
