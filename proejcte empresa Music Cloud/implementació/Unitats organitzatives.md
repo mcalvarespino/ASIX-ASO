@@ -60,6 +60,29 @@ Usuaris
 Equips
 Grups
 ```
+
+> per crear les UO de primer nivell ficarem aquestes comandes:
+
+```powershell
+PS C:\Users\Administrador> New-ADOrganizationalUnit -Name "Usuaris" -Path "OU=MusicCloud,DC=musiccloud,DC=local"
+PS C:\Users\Administrador> New-ADOrganizationalUnit -Name "Equips" -Path "OU=MusicCloud,DC=musiccloud,DC=local"
+PS C:\Users\Administrador> New-ADOrganizationalUnit -Name "Grups" -Path "OU=MusicCloud,DC=musiccloud,DC=local"
+PS C:\Users\Administrador> Get-ADOrganizationalUnit -Filter * -SearchBase "OU=MusicCloud,DC=musiccloud,DC=local" -SearchScope OneLevel | Select-Object Name,DistinguishedName | Format-List
+
+Name              : Equips
+DistinguishedName : OU=Equips,OU=MusicCloud,DC=musiccloud,DC=local
+
+Name              : Grups
+DistinguishedName : OU=Grups,OU=MusicCloud,DC=musiccloud,DC=local
+
+Name              : Usuaris
+DistinguishedName : OU=Usuaris,OU=MusicCloud,DC=musiccloud,DC=local
+
+PS C:\Users\Administrador>
+```
+
+> aqui es veu que les tres estan dins de MusicCloud.
+
 ## Part 3. Creació de les UO de departaments
 
 Dins de la UO `Usuaris`, creeu les UO següents:
