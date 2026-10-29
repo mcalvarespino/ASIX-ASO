@@ -212,10 +212,21 @@ PS C:\Users\Administrador>
 
 Responeu breument:
 
-1. Per què és útil crear una UO principal anomenada `MusicCloud`?  
-2. Per què se separen `Usuaris`, `Equips` i `Grups`?  
-3. Per què els departaments s’han creat dins de `Usuaris`?  
-4. Per què no és recomanable deixar tots els usuaris dins del contenidor `Users`?  
+1. Per què és útil crear una UO principal anomenada `MusicCloud`?
+
+> perquè tota l'estructura de l'empresa quedi junta i sigui mes facil d'organitzar.
+
+2. Per què se separen `Usuaris`, `Equips` i `Grups`?
+
+> perquè son objectes diferents i aixi els podem administrar i aplicar politiques per separat.
+
+3. Per què els departaments s'han creat dins de `Usuaris`?
+
+> perquè aixi podem separar els usuaris segons el departament on treballen.
+
+4. Per què no és recomanable deixar tots els usuaris dins del contenidor `Users`?
+
+> perquè quedarien tots barrejats i no podem enllaçar GPO directament a Users com en una UO.
 
 ## Part 7. Creació scripts
 
