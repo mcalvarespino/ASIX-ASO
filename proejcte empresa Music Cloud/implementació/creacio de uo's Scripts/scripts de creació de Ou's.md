@@ -173,3 +173,105 @@ PS C:\Users\Administrador>
 ```
 
 > crea la UO quan toca, no la duplica i controla les dades incorrectes sense treure un error llarg de PowerShell. El nom es passa sense OU=.
+
+## 7. Crear una UO amb les seves UO filles
+
+> parteixo del sise i afegeixo el parametre descendents i un foreach. Els noms de les UO filles es passen com una llista, no estan escrits dins del script.
+
+Script: [crear_uo_07.ps1](../scripts/crear_uo_07.ps1)
+
+```powershell
+[Parameter(Mandatory=$true)]
+[string[]]$descendents
+```
+
+> per provar els departaments agafo els noms de les UO que ja hi ha a Usuaris i els passo al script:
+
+```powershell
+PS C:\Users\Administrador> $departaments = Get-ADOrganizationalUnit -Filter * -SearchBase "OU=Usuaris,OU=MusicCloud,DC=musiccloud,DC=local" -SearchScope OneLevel | Select-Object -ExpandProperty Name
+PS C:\Users\Administrador> .\scripts\crear_uo_07.ps1 -nomOU Usuaris -ruta "OU=ProvesScripts,DC=musiccloud,DC=local" -descendents $departaments
+Creada: Usuaris
+Creada: Administracio
+Creada: Comercial
+Creada: Desenvolupament
+Creada: Direccio
+Creada: Sistemes
+PS C:\Users\Administrador>
+```
+
+> ara faig el mateix amb Equips. Faig servir el mateix script, nomes canvio els arguments:
+
+```powershell
+PS C:\Users\Administrador> $tipusEquips = Get-ADOrganizationalUnit -Filter * -SearchBase "OU=Equips,OU=MusicCloud,DC=musiccloud,DC=local" -SearchScope OneLevel | Select-Object -ExpandProperty Name
+PS C:\Users\Administrador> .\scripts\crear_uo_07.ps1 -nomOU Equips -ruta "OU=ProvesScripts,DC=musiccloud,DC=local" -descendents $tipusEquips
+Creada: Equips
+Creada: Clients
+Creada: Servidors
+PS C:\Users\Administrador>
+```
+
+> per comprovar que es pot repetir ficarem les comandes una altra vegada, tambe canviant l'ordre dels parametres:
+
+```powershell
+PS C:\Users\Administrador> .\scripts\crear_uo_07.ps1 -ruta "OU=ProvesScripts,DC=musiccloud,DC=local" -nomOU Usuaris -descendents $departaments
+Ja existeix: Usuaris
+Ja existeix: Administracio
+Ja existeix: Comercial
+Ja existeix: Desenvolupament
+Ja existeix: Direccio
+Ja existeix: Sistemes
+PS C:\Users\Administrador> .\scripts\crear_uo_07.ps1 -ruta "OU=ProvesScripts,DC=musiccloud,DC=local" -nomOU Equips -descendents $tipusEquips
+Ja existeix: Equips
+Ja existeix: Clients
+Ja existeix: Servidors
+PS C:\Users\Administrador> Get-ADOrganizationalUnit -Filter * -SearchBase "OU=ProvesScripts,DC=musiccloud,DC=local" | Select-Object Name
+
+Name
+----
+ProvesScripts
+ProvaRuta
+ProvaOrdre
+ProvaValidacio
+Usuaris
+Administracio
+Comercial
+Desenvolupament
+Direccio
+Sistemes
+Equips
+Clients
+Servidors
+
+PS C:\Users\Administrador>
+```
+
+> aqui es veu que crea les UO amb les seves filles i no les duplica. Per posar-les en un altre lloc nomes cal canviar ruta; per crear unes altres filles canviem la llista descendents.
+
+### Deixar el domini com estava abans de les proves
+
+> en acabar he eliminat nomes les UO temporals ProvesScripts i ProvaNomObligatori, despres de comprovar que no tenien altres objectes. Les UO de MusicCloud es queden com estaven.
+
+```powershell
+PS C:\Users\Administrador> Set-ADOrganizationalUnit -Identity "OU=ProvesScripts,DC=musiccloud,DC=local" -ProtectedFromAccidentalDeletion $false
+PS C:\Users\Administrador> Remove-ADOrganizationalUnit -Identity "OU=ProvesScripts,DC=musiccloud,DC=local" -Recursive -Confirm:$false
+PS C:\Users\Administrador> Set-ADOrganizationalUnit -Identity "OU=ProvaNomObligatori,DC=musiccloud,DC=local" -ProtectedFromAccidentalDeletion $false
+PS C:\Users\Administrador> Remove-ADOrganizationalUnit -Identity "OU=ProvaNomObligatori,DC=musiccloud,DC=local" -Confirm:$false
+PS C:\Users\Administrador> Get-ADOrganizationalUnit -Filter * | Select-Object Name
+
+Name
+----
+Domain Controllers
+MusicCloud
+Usuaris
+Equips
+Grups
+Administracio
+Comercial
+Desenvolupament
+Sistemes
+Direccio
+Clients
+Servidors
+
+PS C:\Users\Administrador>
+```
