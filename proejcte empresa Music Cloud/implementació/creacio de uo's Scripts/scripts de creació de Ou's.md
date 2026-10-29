@@ -55,3 +55,29 @@ PS C:\Users\Administrador>
 ```
 
 > el nom ja no esta escrit dins del script, el passem quan l'executem. Farem servir aquesta UO per les proves següents.
+
+## 3. Nom i ruta variables
+
+> ara modifico el segon i tambe passo la ruta com a argument.
+
+Script: [crear_uo_03.ps1](../scripts/crear_uo_03.ps1)
+
+```powershell
+$nomOU = $args[0]
+$ruta = $args[1]
+```
+
+> per crear una UO dins de ProvesScripts ficarem aquesta comanda:
+
+```powershell
+PS C:\Users\Administrador> .\scripts\crear_uo_03.ps1 ProvaRuta "OU=ProvesScripts,DC=musiccloud,DC=local"
+Creada: ProvaRuta
+PS C:\Users\Administrador> Get-ADOrganizationalUnit -Identity "OU=ProvaRuta,OU=ProvesScripts,DC=musiccloud,DC=local" | Select-Object Name,DistinguishedName | Format-List
+
+Name              : ProvaRuta
+DistinguishedName : OU=ProvaRuta,OU=ProvesScripts,DC=musiccloud,DC=local
+
+PS C:\Users\Administrador>
+```
+
+> aqui es veu que l'ha creat a la ruta que li hem passat. En aquest script encara importa l'ordre: primer el nom i despres la ruta.
