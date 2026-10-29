@@ -134,6 +134,25 @@ Dins de la UO `Equips`, creeu les UO següents:
 Clients
 Servidors
 ```
+
+> per separar els clients dels servidors ficarem aquestes comandes dins d'Equips:
+
+```powershell
+PS C:\Users\Administrador> New-ADOrganizationalUnit -Name "Clients" -Path "OU=Equips,OU=MusicCloud,DC=musiccloud,DC=local"
+PS C:\Users\Administrador> New-ADOrganizationalUnit -Name "Servidors" -Path "OU=Equips,OU=MusicCloud,DC=musiccloud,DC=local"
+PS C:\Users\Administrador> Get-ADOrganizationalUnit -Filter * -SearchBase "OU=Equips,OU=MusicCloud,DC=musiccloud,DC=local" -SearchScope OneLevel | Select-Object Name,DistinguishedName | Format-List
+
+Name              : Clients
+DistinguishedName : OU=Clients,OU=Equips,OU=MusicCloud,DC=musiccloud,DC=local
+
+Name              : Servidors
+DistinguishedName : OU=Servidors,OU=Equips,OU=MusicCloud,DC=musiccloud,DC=local
+
+PS C:\Users\Administrador>
+```
+
+> les dues UO ja estan creades dins d'Equips.
+
 ## Part 5. Verificació
 
 Executeu una consulta que mostri totes les unitats organitzatives del domini.
