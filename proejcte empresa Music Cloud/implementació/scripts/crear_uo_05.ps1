@@ -4,8 +4,6 @@ param (
     [string]$ruta = "DC=musiccloud,DC=local"
 )
 
-Import-Module ActiveDirectory
-
 try {
     $OU = Get-ADOrganizationalUnit -Identity "OU=$nomOU,$ruta" -ErrorAction Stop
 }

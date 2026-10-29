@@ -1,5 +1,3 @@
-Import-Module ActiveDirectory
-
 $nomOU = $args[0]
 $ruta = $args[1]
 

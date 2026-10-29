@@ -3,8 +3,6 @@ param (
     [string]$ruta
 )
 
-Import-Module ActiveDirectory
-
 try {
     $OU = Get-ADOrganizationalUnit -Identity "OU=$nomOU,$ruta" -ErrorAction Stop
 }
