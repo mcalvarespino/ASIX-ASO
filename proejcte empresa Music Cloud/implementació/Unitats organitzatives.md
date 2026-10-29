@@ -158,6 +158,56 @@ PS C:\Users\Administrador>
 Executeu una consulta que mostri totes les unitats organitzatives del domini.
 
 La sortida ha de mostrar, com a mínim, les UO creades en aquesta pràctica.
+
+> per veure totes les UO del domini ficarem la següent comanda:
+
+```powershell
+PS C:\Users\Administrador> Get-ADOrganizationalUnit -Filter * -SearchBase "DC=musiccloud,DC=local" | Select-Object Name,DistinguishedName | Format-List
+
+Name              : Domain Controllers
+DistinguishedName : OU=Domain Controllers,DC=musiccloud,DC=local
+
+Name              : MusicCloud
+DistinguishedName : OU=MusicCloud,DC=musiccloud,DC=local
+
+Name              : Usuaris
+DistinguishedName : OU=Usuaris,OU=MusicCloud,DC=musiccloud,DC=local
+
+Name              : Equips
+DistinguishedName : OU=Equips,OU=MusicCloud,DC=musiccloud,DC=local
+
+Name              : Grups
+DistinguishedName : OU=Grups,OU=MusicCloud,DC=musiccloud,DC=local
+
+Name              : Administracio
+DistinguishedName : OU=Administracio,OU=Usuaris,OU=MusicCloud,DC=musiccloud,DC=
+                    local
+
+Name              : Comercial
+DistinguishedName : OU=Comercial,OU=Usuaris,OU=MusicCloud,DC=musiccloud,DC=loca
+                    l
+
+Name              : Desenvolupament
+DistinguishedName : OU=Desenvolupament,OU=Usuaris,OU=MusicCloud,DC=musiccloud,D
+                    C=local
+
+Name              : Sistemes
+DistinguishedName : OU=Sistemes,OU=Usuaris,OU=MusicCloud,DC=musiccloud,DC=local
+
+Name              : Direccio
+DistinguishedName : OU=Direccio,OU=Usuaris,OU=MusicCloud,DC=musiccloud,DC=local
+
+Name              : Clients
+DistinguishedName : OU=Clients,OU=Equips,OU=MusicCloud,DC=musiccloud,DC=local
+
+Name              : Servidors
+DistinguishedName : OU=Servidors,OU=Equips,OU=MusicCloud,DC=musiccloud,DC=local
+
+PS C:\Users\Administrador>
+```
+
+> aqui es veuen les 11 UO que hem creat. Tambe surt Domain Controllers, que ja estava creada abans.
+
 ## Part 6. Preguntes
 
 Responeu breument:
