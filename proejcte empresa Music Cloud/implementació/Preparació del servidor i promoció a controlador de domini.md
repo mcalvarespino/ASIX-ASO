@@ -1,7 +1,5 @@
 # Pràctica
 
-> Estat de la pràctica: hem començat la preparació de la xarxa. La comprovació després del reinici ha quedat pendent perquè no hem pogut tornar a entrar al servidor abans d’aturar la sessió. Encara no hem instal·lat AD DS ni hem creat el domini.
-
 ## Objectiu
 
 Preparar el servidor `SRV-AD-01` i promocionar-lo com a primer controlador de domini del domini `musiccloud.local`.
@@ -36,40 +34,63 @@ La configuració IP concreta dependrà de la xarxa del laboratori. Anoteu els va
 
 Completeu la taula següent:
 
-| Paràmetre        | Valor configurat |
-| ---------------- | ---------------- |
-| Adreça IP        |                  |
-| Màscara          |                  |
-| Porta d’enllaç   |                  |
-| DNS preferit     |                  |
-| Nom del servidor |                  |
+| Paràmetre | Valor configurat |
+| --- | --- |
+| Adreça IP | 192.168.56.115 /24 |
+| Màscara | 255.255.255.0 |
+| Porta d’enllaç | Cap a Ethernet 2; 10.0.2.1 a la NAT |
+| DNS preferit | 192.168.56.115 |
+| Nom del servidor | SRV-AD-01 |
 
-### Preparació que hem fet fins ara
-
-> Primer hem mirat com estava el servidor. Es deia `WIN-FTMF63VOMCU`, estava a `WORKGROUP` i no tenia AD DS ni DNS instal·lats. Les dues targetes agafaven la IP per DHCP.
+> He deixat les IP fixes i he canviat el nom del servidor. Per l’AD faig servir la 192, la NAT queda per sortir a Internet.
 
 ```powershell
-PS C:\Users\Administrador> Get-NetIPAddress -AddressFamily IPv4 | Select-Object InterfaceAlias,IPAddress,PrefixLength,PrefixOrigin
-InterfaceAlias IPAddress       PrefixLength PrefixOrigin
--------------- ---------       ------------ ------------
-Ethernet 2     192.168.56.115              24 Dhcp
-Ethernet       10.0.2.15                  24 Dhcp
+PS C:\Users\Administrador> Set-NetIPInterface -InterfaceIndex 7 -Dhcp Disabled
+PS C:\Users\Administrador> New-NetIPAddress -InterfaceIndex 7 -IPAddress 10.0.2.15 -PrefixLength 24 -DefaultGateway 10.0.2.1
+PS C:\Users\Administrador> Set-NetIPInterface -InterfaceIndex 4 -Dhcp Disabled
+PS C:\Users\Administrador> New-NetIPAddress -InterfaceIndex 4 -IPAddress 192.168.56.115 -PrefixLength 24
+PS C:\Users\Administrador> Set-DnsClientServerAddress -InterfaceIndex 4,7 -ServerAddresses 192.168.56.115
+PS C:\Users\Administrador> Set-DnsClient -InterfaceIndex 7 -RegisterThisConnectionsAddress $false
+PS C:\Users\Administrador> Rename-Computer -NewName SRV-AD-01 -Force -PassThru
 ```
 
-> La xarxa que farem servir per a l’AD és `192.168.56.115/24`, amb màscara `255.255.255.0`. La targeta de la xarxa 192 no necessita porta d’enllaç. La sortida a Internet va per la NAT, amb porta d’enllaç `10.0.2.1`.
-
-> Hem reservat les adreces a VirtualBox per a les MAC d’aquest servidor, perquè el DHCP no les doni a un altre equip:
+> Després del reinici he comprovat que el nom i les IP estan bé. El primer intent s’havia parat en treure DHCP, però ja ha quedat corregit.
 
 ```powershell
-VBoxManage dhcpserver modify --interface="VirtualBox Host-Only Ethernet Adapter" --mac-address=080027C41C1E --fixed-address=192.168.56.115
-VBoxManage dhcpserver modify --network=NatNetwork --mac-address=080027DFE54D --fixed-address=10.0.2.15
+PS C:\Users\Administrador> hostname
+SRV-AD-01
+
+PS C:\Users\Administrador> Get-NetIPAddress -AddressFamily IPv4 | Format-Table InterfaceAlias,IPAddress,PrefixLength,PrefixOrigin
+InterfaceAlias              IPAddress      PrefixLength PrefixOrigin
+--------------              ---------      ------------ ------------
+Ethernet 2                  192.168.56.115           24       Manual
+Ethernet                    10.0.2.15                24       Manual
+Loopback Pseudo-Interface 1 127.0.0.1                 8    WellKnown
+
+PS C:\Users\Administrador> Get-NetIPInterface -AddressFamily IPv4 | Format-Table InterfaceAlias,Dhcp
+InterfaceAlias                  Dhcp
+--------------                  ----
+Ethernet 2                  Disabled
+Ethernet                    Disabled
+Loopback Pseudo-Interface 1 Disabled
+
+PS C:\Users\Administrador> Get-DnsClientServerAddress -AddressFamily IPv4 | Format-Table InterfaceAlias,ServerAddresses
+InterfaceAlias              ServerAddresses
+--------------              ---------------
+Ethernet                    {192.168.56.115}
+Ethernet 2                  {192.168.56.115}
+Loopback Pseudo-Interface 1 {}
+
+PS C:\Users\Administrador> Get-TimeZone | Select-Object Id
+Id
+--
+Romance Standard Time
+
+PS C:\Users\Administrador> Get-Date -Format 'dd/MM/yyyy HH:mm:ss'
+29/10/2026 15:14:06
 ```
 
-> Després hem iniciat el canvi de les IP a manuals, el DNS propi i el nom `SRV-AD-01`. En treure DHCP, Windows ha retirat l’adreça antiga de la NAT i el primer intent s’ha aturat. Hem corregit el guió i l’hem tornat a iniciar. La connexió s’ha tallat durant el procés i encara no hem pogut confirmar el resultat final.
-
-> Per tant, aquests són els valors previstos, però **encara falta comprovar que hagin quedat aplicats**. La taula de valors configurats i les verificacions finals queden pendents. També queda pendent instal·lar AD DS, crear el bosc i el domini, i fer les comprovacions de DNS.
-
-> La zona horària inicial ja era `Romance Standard Time`, corresponent a Madrid.
+> La zona horària és la de Madrid i l’hora també està bé.
 
 ### Part 2. Instal·lació del rol AD DS
 
