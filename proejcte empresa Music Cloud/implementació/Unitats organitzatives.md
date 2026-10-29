@@ -304,3 +304,63 @@ PS C:\Users\Administrador>
 ```
 
 > aqui es veu que ha creat les quatre UO.
+
+### 7.4. Crear nomes les UO que falten
+
+> per fer aixo faig servir una funcio amb param i try/catch, com als apunts. Primer mira si la UO existeix i nomes la crea si falta. Comprova tota l'estructura de la practica.
+
+Script: [7_4_crear_si_falten.ps1](scripts/7_4_crear_si_falten.ps1)
+
+> primer l'executo amb les quatre UO del punt anterior ja creades:
+
+```powershell
+PS C:\Users\Administrador> .\scripts\7_4_crear_si_falten.ps1
+Ja existeix: MusicCloud
+Ja existeix: Usuaris
+Ja existeix: Equips
+Ja existeix: Grups
+Creada: Administracio
+Creada: Comercial
+Creada: Desenvolupament
+Creada: Sistemes
+Creada: Direccio
+Creada: Clients
+Creada: Servidors
+PS C:\Users\Administrador>
+```
+
+> ara el torno a executar per comprovar que no duplica res ni dona errors:
+
+```powershell
+PS C:\Users\Administrador> .\scripts\7_4_crear_si_falten.ps1
+Ja existeix: MusicCloud
+Ja existeix: Usuaris
+Ja existeix: Equips
+Ja existeix: Grups
+Ja existeix: Administracio
+Ja existeix: Comercial
+Ja existeix: Desenvolupament
+Ja existeix: Sistemes
+Ja existeix: Direccio
+Ja existeix: Clients
+Ja existeix: Servidors
+PS C:\Users\Administrador> Get-ADOrganizationalUnit -Filter * -SearchBase "OU=MusicCloud,DC=musiccloud,DC=local" | Select-Object Name
+
+Name
+----
+MusicCloud
+Usuaris
+Administracio
+Comercial
+Desenvolupament
+Sistemes
+Direccio
+Equips
+Clients
+Servidors
+Grups
+
+PS C:\Users\Administrador>
+```
+
+> les 11 UO estan creades i a la segona execucio no ha hagut de crear res.
