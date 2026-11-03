@@ -178,7 +178,7 @@ PS C:\Users\Administrador>
 
 ## 7. Crear la UO i les seves filles
 
-> el sete fa servir el sise per crear la UO principal si falta. Amb PassThru en recupera la ruta i amb un foreach crida el sise per cada filla. Els dos scripts han d'estar a la mateixa carpeta.
+> primer comprovo la ruta. Amb un foreach creo la UO principal i despres les filles. Si alguna ja existeix, la deixo com esta.
 
 Script: [crear_uo_07.ps1](../scripts/crear_uo_07.ps1)
 
@@ -242,4 +242,4 @@ Count
 PS C:\Users\Administrador>
 ```
 
-> amb la versio nova he repetit la prova al Core amb la UO temporal ProvaUO731b6a2c6 i les filles Clients i Servidors. La primera vegada ha creat les tres UO i a la segona les ha trobat totes. Al final he eliminat la prova temporal.
+al Core amb la UO temporal ProvaUO731b6a2c6 i les filles Clients i Servidors. La primera vegada ha creat les tres UO i a la segona les ha trobat totes. Al final he eliminat la prova temporal.

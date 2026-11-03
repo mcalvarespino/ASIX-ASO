@@ -6,20 +6,37 @@ param (
     [string[]]$descendents
 )
 
-$crearUO = Join-Path $PSScriptRoot "crear_uo_06.ps1"
-$OU = & $crearUO -nomOU $nomOU -ruta $ruta -PassThru
-if (-not $OU) {
+try {
+    $pare = Get-ADObject -Identity $ruta -ErrorAction Stop
+}
+catch {
+    Write-Host "No puc accedir a la ruta: $ruta"
     return
 }
 
-foreach ($nomFill in $descendents) {
-    if ([string]::IsNullOrWhiteSpace($nomFill)) {
-        Write-Host "Escriu el nom de la UO filla."
+if ($pare.ObjectClass -notin "domainDNS", "organizationalUnit") {
+    Write-Host "La ruta ha de ser el domini o una UO."
+    return
+}
+
+$rutaActual = $ruta
+foreach ($nom in (@($nomOU) + $descendents)) {
+    $nom = ([string]$nom).Trim()
+    if ($nom -eq "" -or $nom -like "OU=*") {
+        Write-Host "Escriu nomes el nom, sense OU= i sense deixar-lo buit."
         return
     }
 
-    $filla = & $crearUO -nomOU $nomFill -ruta $OU.DistinguishedName -PassThru
-    if (-not $filla) {
-        return
+    $OU = Get-ADOrganizationalUnit -Filter {Name -eq $nom} -SearchBase $rutaActual -SearchScope OneLevel -ErrorAction Stop
+    if (-not $OU) {
+        $OU = New-ADOrganizationalUnit -Name $nom -Path $rutaActual -PassThru -ErrorAction Stop
+        Write-Host "Creada: $nom"
+    }
+    else {
+        Write-Host "Ja existeix: $nom"
+    }
+
+    if ($rutaActual -eq $ruta) {
+        $rutaActual = $OU.DistinguishedName
     }
 }

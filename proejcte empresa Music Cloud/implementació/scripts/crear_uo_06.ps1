@@ -4,8 +4,7 @@
 param (
     [Parameter(Mandatory=$true)]
     [string]$nomOU,
-    [string]$ruta = "DC=musiccloud,DC=local",
-    [switch]$PassThru
+    [string]$ruta = "DC=musiccloud,DC=local"
 )
 
 try {
@@ -35,13 +34,11 @@ catch {
 }
 
 if (-not $OU) {
-    $OU = New-ADOrganizationalUnit -Name $nomOU -Path $ruta -PassThru -ErrorAction Stop
+    New-ADOrganizationalUnit -Name $nomOU -Path $ruta -ErrorAction Stop
     Write-Host "Creada: $nomOU"
 }
 else {
     Write-Host "Ja existeix: $nomOU"
 }
-
-if ($PassThru) { $OU }
 
 #escric aixo per fer un push i commit que se ma passat de avans
