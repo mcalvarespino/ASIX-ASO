@@ -43,3 +43,5 @@ else {
 }
 
 if ($PassThru) { $OU }
+
+#escric aixo per fer un push i commit que se ma passat de avans

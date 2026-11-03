@@ -241,3 +241,5 @@ Count
 
 PS C:\Users\Administrador>
 ```
+
+> amb la versio nova he repetit la prova al Core amb la UO temporal ProvaUO731b6a2c6 i les filles Clients i Servidors. La primera vegada ha creat les tres UO i a la segona les ha trobat totes. Al final he eliminat la prova temporal.
