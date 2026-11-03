@@ -1,3 +1,5 @@
+#Quart:
+#el ordre dels arguments no importa(fer amb arguments etc..)
 param (
     [string]$nomOU,
     [string]$ruta

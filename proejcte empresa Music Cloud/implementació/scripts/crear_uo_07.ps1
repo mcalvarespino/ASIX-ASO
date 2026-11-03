@@ -1,3 +1,6 @@
+#setè:
+#es crear la OU i crearla a un lloc peor lo especial que te es que ha de crear totes les Uo's que tu li diguins que están a un llco per exmeple tinc Musiccloud i dins Usuaris de Uo's i després departamento a les hores el script ha de crear tots els departamento pero si tu li dius que la teva ruta es per exemple muscicloud equips el script automaticament ha de crear clients i servers(no hardcoded)
+
 param (
     [Parameter(Mandatory=$true)]
     [string]$nomOU,

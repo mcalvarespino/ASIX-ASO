@@ -1,3 +1,5 @@
+#tercer:nom i ruta variable
+
 $nomOU = $args[0]
 $ruta = $args[1]
 

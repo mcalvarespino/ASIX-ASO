@@ -1,3 +1,5 @@
+#cinquè:
+#el nom de la OU es obligatori i la ruta si no sespecifica ha de haver-hi una by default
 param (
     [Parameter(Mandatory=$true)]
     [string]$nomOU,

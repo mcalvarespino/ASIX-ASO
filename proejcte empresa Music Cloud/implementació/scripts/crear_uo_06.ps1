@@ -1,3 +1,6 @@
+#sisè:
+#el script ha de funcionar en totes le situacions valorant tots els casos no ficar Ou etc.
+
 param (
     [Parameter(Mandatory=$true)]
     [string]$nomOU,

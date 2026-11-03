@@ -1,3 +1,4 @@
+#segon: el nom de la OU variable
 $nomOU = $args[0]
 $ruta = "DC=musiccloud,DC=local"
 
