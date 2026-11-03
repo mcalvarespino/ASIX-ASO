@@ -1,8 +1,10 @@
 #tercer:nom i ruta variable
 
+# el primer argument es el nom i el segon es la ruta.
 $nomOU = $args[0]
 $ruta = $args[1]
 
+# busco la UO amb el seu nom i la ruta completa.
 try {
     $OU = Get-ADOrganizationalUnit -Identity "OU=$nomOU,$ruta" -ErrorAction Stop
 }
@@ -10,6 +12,7 @@ catch {
     $OU = $null
 }
 
+# si no he trobat la UO, la creo.
 if (-not $OU) {
     New-ADOrganizationalUnit -Name $nomOU -Path $ruta
     Write-Host "Creada: $nomOU"

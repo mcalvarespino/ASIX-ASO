@@ -1,6 +1,8 @@
-# Get-ChildItem treballa amb el directori actual.
+# agafo els elements de la carpeta on estic per comptar-los al final.
 $elements = @(Get-ChildItem)
+# PSIsContainer em diu si es una carpeta. Aqui em quedo amb els fitxers.
 $fitxers = @($elements | Where-Object { $_.PSIsContainer -eq $false })
+# ordeno els fitxers per mida i agafo els 5 mes grans.
 $fitxersGrans = $fitxers |
     Sort-Object Length -Descending |
     Select-Object -First 5 Name, Length

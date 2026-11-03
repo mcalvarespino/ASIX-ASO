@@ -7,6 +7,7 @@ param (
 )
 
 try {
+    # primer miro si puc accedir a la ruta.
     $pare = Get-ADObject -Identity $ruta -ErrorAction Stop
 }
 catch {
@@ -19,6 +20,7 @@ if ($pare.ObjectClass -notin "domainDNS", "organizationalUnit") {
     return
 }
 
+# poso la principal davant de les filles per crear-les en ordre.
 $rutaActual = $ruta
 foreach ($nom in (@($nomOU) + $descendents)) {
     $nom = ([string]$nom).Trim()
@@ -27,6 +29,7 @@ foreach ($nom in (@($nomOU) + $descendents)) {
         return
     }
 
+    # busco el nom nomes entre les UO que hi ha just dins de la ruta.
     $OU = Get-ADOrganizationalUnit -Filter {Name -eq $nom} -SearchBase $rutaActual -SearchScope OneLevel -ErrorAction Stop
     if (-not $OU) {
         $OU = New-ADOrganizationalUnit -Name $nom -Path $rutaActual -PassThru -ErrorAction Stop
@@ -36,6 +39,7 @@ foreach ($nom in (@($nomOU) + $descendents)) {
         Write-Host "Ja existeix: $nom"
     }
 
+    # despres de la principal canvio la ruta perquè totes les filles hi vagin dins.
     if ($rutaActual -eq $ruta) {
         $rutaActual = $OU.DistinguishedName
     }

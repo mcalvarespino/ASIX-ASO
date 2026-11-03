@@ -1,5 +1,6 @@
 $ErrorActionPreference = "Stop"
 
+# faig servir la mateixa funcio per buscar i crear cada UO que falti.
 function Crear-UO {
     param ([string]$nomOU, [string]$ruta)
 
@@ -17,16 +18,19 @@ function Crear-UO {
 $ruta = "DC=musiccloud,DC=local"
 Crear-UO -nomOU "MusicCloud" -ruta $ruta
 
+# primer comprovo les tres filles de MusicCloud.
 $empresa = "OU=MusicCloud,$ruta"
 foreach ($nomOU in "Usuaris", "Equips", "Grups") {
     Crear-UO -nomOU $nomOU -ruta $empresa
 }
 
+# dins d Usuaris hi poso els departaments que falten.
 $ruta = "OU=Usuaris,$empresa"
 foreach ($nomOU in "Administracio", "Comercial", "Desenvolupament", "Sistemes", "Direccio") {
     Crear-UO -nomOU $nomOU -ruta $ruta
 }
 
+# dins d Equips comprovo Clients i Servidors.
 $ruta = "OU=Equips,$empresa"
 foreach ($nomOU in "Clients", "Servidors") {
     Crear-UO -nomOU $nomOU -ruta $ruta

@@ -8,6 +8,7 @@ param (
 )
 
 try {
+    # primer comprovo que la ruta existeix.
     $pare = Get-ADObject -Identity $ruta -ErrorAction Stop
 }
 catch {
@@ -20,12 +21,14 @@ if ($pare.ObjectClass -ne "domainDNS" -and $pare.ObjectClass -ne "organizational
     return
 }
 
+# trec els espais i comprovo que nomes hi hagi el nom.
 $nomOU = $nomOU.Trim()
 if ($nomOU -eq "" -or $nomOU -like "OU=*") {
     Write-Host "Escriu nomes el nom, sense OU= i sense deixar-lo buit."
     return
 }
 
+# busco la UO amb el seu nom i la ruta completa.
 try {
     $OU = Get-ADOrganizationalUnit -Identity "OU=$nomOU,$ruta" -ErrorAction Stop
 }
@@ -33,6 +36,7 @@ catch {
     $OU = $null
 }
 
+# si no he trobat la UO, la creo.
 if (-not $OU) {
     New-ADOrganizationalUnit -Name $nomOU -Path $ruta -ErrorAction Stop
     Write-Host "Creada: $nomOU"
