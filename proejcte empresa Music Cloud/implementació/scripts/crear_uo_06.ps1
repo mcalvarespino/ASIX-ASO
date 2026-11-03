@@ -4,7 +4,8 @@
 param (
     [Parameter(Mandatory=$true)]
     [string]$nomOU,
-    [string]$ruta = "DC=musiccloud,DC=local"
+    [string]$ruta = "DC=musiccloud,DC=local",
+    [switch]$PassThru
 )
 
 try {
@@ -26,7 +27,13 @@ if ($nomOU -eq "" -or $nomOU -like "OU=*") {
     return
 }
 
-$OU = Get-ADOrganizationalUnit -Filter {Name -eq $nomOU} -SearchBase $ruta -SearchScope OneLevel -ErrorAction Stop
+try {
+    $OU = Get-ADOrganizationalUnit -Identity "OU=$nomOU,$ruta" -ErrorAction Stop
+}
+catch {
+    $OU = $null
+}
+
 if (-not $OU) {
     $OU = New-ADOrganizationalUnit -Name $nomOU -Path $ruta -PassThru -ErrorAction Stop
     Write-Host "Creada: $nomOU"
@@ -34,3 +41,5 @@ if (-not $OU) {
 else {
     Write-Host "Ja existeix: $nomOU"
 }
+
+if ($PassThru) { $OU }

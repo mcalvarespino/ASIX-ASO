@@ -237,6 +237,8 @@ Responeu breument:
 
 ### 7.1. Eliminar les UO
 
+> els quatre scripts es poden executar directament al Core. Les sortides de sota son les de les proves que ja havia fet.
+
 > per eliminar les UO de la practica farem servir aquest script. Treu la proteccio de MusicCloud i elimina les UO de dins. Si hi ha altres objectes, s'atura.
 
 Script: [7_1_eliminar_uo.ps1](scripts/7_1_eliminar_uo.ps1)
@@ -307,7 +309,7 @@ PS C:\Users\Administrador>
 
 ### 7.4. Crear nomes les UO que falten
 
-> per fer aixo faig servir una funcio amb param i try/catch, com als apunts. Primer mira si la UO existeix i nomes la crea si falta. Comprova tota l'estructura de la practica.
+> per fer aixo faig servir una funcio que busca cada UO dins de la seva ruta. Primer mira si la UO existeix i nomes la crea si falta. Comprova tota l'estructura de la practica.
 
 Script: [7_4_crear_si_falten.ps1](scripts/7_4_crear_si_falten.ps1)
 

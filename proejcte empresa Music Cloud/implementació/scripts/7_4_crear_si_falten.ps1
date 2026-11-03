@@ -1,18 +1,9 @@
-Import-Module ActiveDirectory
 $ErrorActionPreference = "Stop"
 
 function Crear-UO {
-    param (
-        [string]$nomOU,
-        [string]$ruta
-    )
+    param ([string]$nomOU, [string]$ruta)
 
-    try {
-        $OU = Get-ADOrganizationalUnit -Identity "OU=$nomOU,$ruta" -ErrorAction Stop
-    }
-    catch {
-        $OU = $null
-    }
+    $OU = Get-ADOrganizationalUnit -Filter {Name -eq $nomOU} -SearchBase $ruta -SearchScope OneLevel
 
     if (-not $OU) {
         New-ADOrganizationalUnit -Name $nomOU -Path $ruta

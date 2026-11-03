@@ -144,7 +144,7 @@ PS C:\Users\Administrador>
 
 ## 6. Comprovar la ruta i crear nomes si falta
 
-> parteixo del cinque. Primer comprovo que la ruta existeix i que es el domini o una UO. Despres miro el nom i nomes creo la UO si no existeix.
+> parteixo del cinque. Primer comprovo que la ruta existeix i que es el domini o una UO. Despres busco la UO per la seva ruta completa. Si no existeix, la creo.
 
 Script: [crear_uo_06.ps1](../scripts/crear_uo_06.ps1)
 
@@ -178,7 +178,7 @@ PS C:\Users\Administrador>
 
 ## 7. Crear la UO i les seves filles
 
-> es el mateix script del sise amb un parametre descendents i un foreach al final. Primer comprova la ruta i crea la UO nomes si falta. Despres fa el mateix amb cada filla.
+> el sete fa servir el sise per crear la UO principal si falta. Amb PassThru en recupera la ruta i amb un foreach crida el sise per cada filla. Els dos scripts han d'estar a la mateixa carpeta.
 
 Script: [crear_uo_07.ps1](../scripts/crear_uo_07.ps1)
 
