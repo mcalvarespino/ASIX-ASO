@@ -112,3 +112,21 @@ Ja existeix: GG_Admins_Sistema
 ```
 
 > he mirat amb Get-ADGroup que dins de Grups hi ha els 11 grups i que tots son Global i Security.
+
+## Prova final al Core
+
+> provo la copia que tinc al Core amb dos grups que ja existeixen. Espero que ho digui les dues vegades. Amb una UO incorrecta espero que avisi i pari.
+
+```powershell
+PS C:\Users\Administrador> $f = 'C:\Users\Administrador\crear_grups.ps1'
+PS C:\Users\Administrador> & $f -nomGrup GG_Direccio,GG_Informatica
+Ja existeix: GG_Direccio
+Ja existeix: GG_Informatica
+PS C:\Users\Administrador> & $f -nomGrup GG_Direccio,GG_Informatica
+Ja existeix: GG_Direccio
+Ja existeix: GG_Informatica
+PS C:\Users\Administrador> & $f -nomGrup GG_Direccio -ruta 'OU=NoExisteix,DC=musiccloud,DC=local'
+No puc accedir a la UO: OU=NoExisteix,DC=musiccloud,DC=local
+```
+
+> he comparat els grups de la UO Grups abans i despres. Hi havia els mateixos 12 objectes i la prova no n'ha creat ni eliminat cap.
