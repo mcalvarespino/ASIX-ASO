@@ -6,7 +6,7 @@
 
 ## Grups que toquen
 
-> del disseny he tret aquests 11 grups inicials. Tots van dins de Grups. Tots els noms comencen per GG_ i despres porten el nom del grup, com GG_Informatica.
+> del disseny he tret aquests 11 grups inicials. Tots van dins de Grups.
 
 - Departaments: `GG_Direccio`, `GG_Administracio`, `GG_Suport_Tecnic`, `GG_Produccio_Musical` i `GG_Informatica`.
 - Externs i caps: `GG_Externs` i `GG_Caps_Departament`.
@@ -15,11 +15,36 @@
 
 > els grups de permisos, com GP_Administracio_Gestio_LE, els deixo per la part de permisos.
 
-## Com estan les UO
+## Com estaven les UO
 
 > quan vaig començar, Grups ja existia i estava buida. Dins de MusicCloud falten Servidors i Comptes_de_servei. A Usuaris hi ha les UO dels departaments i falten Interns i Externs. A Equips hi ha Clients i Servidors, pero al disseny Servidors va al costat d'Equips.
 
-> quan toqui afegir les UO que falten fare servir el 7 amb funcions.
+## Afegir les UO que falten
+
+> he fet servir el 7 amb funcions que ja tenia. Espero que crei Servidors i Comptes_de_servei dins de MusicCloud, i Interns i Externs dins d'Usuaris. Si repeteixo les comandes, han de sortir totes com a existents.
+
+```powershell
+PS C:\Users\Administrador> $f = Join-Path $env:TEMP 'crear_uo_07.ps1'
+PS C:\Users\Administrador> $base = 'OU=MusicCloud,DC=musiccloud,DC=local'
+PS C:\Users\Administrador> & $f -nomOU MusicCloud -descendents Servidors,Comptes_de_servei
+Ja existeix: MusicCloud
+Creada: Servidors
+Creada: Comptes_de_servei
+PS C:\Users\Administrador> & $f -nomOU Usuaris -ruta $base -descendents Interns,Externs
+Ja existeix: Usuaris
+Creada: Interns
+Creada: Externs
+PS C:\Users\Administrador> & $f -nomOU MusicCloud -descendents Servidors,Comptes_de_servei
+Ja existeix: MusicCloud
+Ja existeix: Servidors
+Ja existeix: Comptes_de_servei
+PS C:\Users\Administrador> & $f -nomOU Usuaris -ruta $base -descendents Interns,Externs
+Ja existeix: Usuaris
+Ja existeix: Interns
+Ja existeix: Externs
+```
+
+> he comprovat les rutes amb Get-ADOrganizationalUnit. Ara hi son totes les UO del disseny i els 11 grups segueixen dins de Grups. Encara hi ha les cinc UO de departaments, Clients i el Servidors de dins d'Equips, que eren de la practica anterior.
 
 ## Primera prova al Core
 
@@ -52,4 +77,38 @@ GroupCategory     : Security
 DistinguishedName : CN=GG_Direccio,OU=Grups,OU=MusicCloud,DC=musiccloud,DC=local
 ```
 
-> tambe he comprovat en local que Informatica i GG_ es rebutgen, i que GG_Direccio passa la comprovacio.
+## Crear diversos grups
+
+> ara passo els noms amb -nomGrup separats per comes. Comprovo els noms i creo els grups que falten. Les funcions segueixen fent una feina cadascuna i els missatges surten al programa principal.
+
+> espero que la primera vegada crei els deu que falten i deixi GG_Direccio com esta. A la segona espero que digui que ja existeixen tots.
+
+```powershell
+PS C:\Users\Administrador> $f = Join-Path $env:TEMP 'crear_grups.ps1'
+PS C:\Users\Administrador> & $f -nomGrup GG_Direccio,GG_Administracio,GG_Suport_Tecnic,GG_Produccio_Musical,GG_Informatica,GG_Externs,GG_Caps_Departament,GG_Campanya_Estiu,GG_Nou_Cataleg,GG_Migracio_Servidors,GG_Admins_Sistema
+Ja existeix: GG_Direccio
+Creat: GG_Administracio
+Creat: GG_Suport_Tecnic
+Creat: GG_Produccio_Musical
+Creat: GG_Informatica
+Creat: GG_Externs
+Creat: GG_Caps_Departament
+Creat: GG_Campanya_Estiu
+Creat: GG_Nou_Cataleg
+Creat: GG_Migracio_Servidors
+Creat: GG_Admins_Sistema
+PS C:\Users\Administrador> & $f -nomGrup GG_Direccio,GG_Administracio,GG_Suport_Tecnic,GG_Produccio_Musical,GG_Informatica,GG_Externs,GG_Caps_Departament,GG_Campanya_Estiu,GG_Nou_Cataleg,GG_Migracio_Servidors,GG_Admins_Sistema
+Ja existeix: GG_Direccio
+Ja existeix: GG_Administracio
+Ja existeix: GG_Suport_Tecnic
+Ja existeix: GG_Produccio_Musical
+Ja existeix: GG_Informatica
+Ja existeix: GG_Externs
+Ja existeix: GG_Caps_Departament
+Ja existeix: GG_Campanya_Estiu
+Ja existeix: GG_Nou_Cataleg
+Ja existeix: GG_Migracio_Servidors
+Ja existeix: GG_Admins_Sistema
+```
+
+> he mirat amb Get-ADGroup que dins de Grups hi ha els 11 grups i que tots son Global i Security.

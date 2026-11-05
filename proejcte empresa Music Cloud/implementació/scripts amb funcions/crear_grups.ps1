@@ -1,6 +1,6 @@
 param (
     [Parameter(Mandatory=$true)]
-    [string]$nomGrup,
+    [string[]]$nomGrup,
     [string]$ruta = "OU=Grups,OU=MusicCloud,DC=musiccloud,DC=local"
 )
 
@@ -27,24 +27,24 @@ catch {
     return
 }
 
-$nomGrup = $nomGrup.Trim()
-if ($nomGrup -eq "") {
-    Write-Host "Escriu el nom del grup."
-    return
+# primer comprovo tots els noms de la llista.
+foreach ($nom in $nomGrup) {
+    $nom = ([string]$nom).Trim()
+    if ($nom -eq "") {
+        Write-Host "Escriu el nom del grup."
+        return
+    }
 }
 
-# en aquesta practica tots els grups porten GG_ i el nom.
-if ($nomGrup -cnotlike "GG_?*") {
-    Write-Host "El nom ha de comencar per GG_ i portar un nom al darrere."
-    return
-}
-
-# si el grup falta el creo. Els missatges surten aqui.
-$grup = Buscar-Grup -nom $nomGrup -ruta $uo.DistinguishedName
-if ($grup) {
-    Write-Host "Ja existeix: $nomGrup"
-}
-else {
-    Crear-Grup -nom $nomGrup -ruta $uo.DistinguishedName
-    Write-Host "Creat: $nomGrup"
+# ara passo per cada nom i creo nomes els grups que falten.
+foreach ($nom in $nomGrup) {
+    $nom = ([string]$nom).Trim()
+    $grup = Buscar-Grup -nom $nom -ruta $uo.DistinguishedName
+    if ($grup) {
+        Write-Host "Ja existeix: $nom"
+    }
+    else {
+        Crear-Grup -nom $nom -ruta $uo.DistinguishedName
+        Write-Host "Creat: $nom"
+    }
 }
