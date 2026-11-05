@@ -6,18 +6,18 @@ param (
     [string[]]$descendents
 )
 
-function Preparar-UO {
+function Buscar-UO {
     param ([string]$nom, [string]$ruta)
 
     # busco el nom nomes entre les filles directes de la ruta.
-    $uo = Get-ADOrganizationalUnit -Filter {Name -eq $nom} -SearchBase $ruta -SearchScope OneLevel -ErrorAction Stop
-    if ($uo) {
-        return @{ UO = $uo; Creada = $false }
-    }
+    Get-ADOrganizationalUnit -Filter {Name -eq $nom} -SearchBase $ruta -SearchScope OneLevel -ErrorAction Stop
+}
 
-    # si falta la creo i retorno les dades al programa principal.
-    $uo = New-ADOrganizationalUnit -Name $nom -Path $ruta -PassThru -ErrorAction Stop
-    return @{ UO = $uo; Creada = $true }
+function Crear-UO {
+    param ([string]$nom, [string]$ruta)
+
+    # creo la UO i la retorno per poder agafar la seva ruta.
+    New-ADOrganizationalUnit -Name $nom -Path $ruta -PassThru -ErrorAction Stop
 }
 
 # primer miro si la ruta existeix i si hi puc crear una UO.
@@ -43,9 +43,10 @@ foreach ($nom in (@($nomOU) + $descendents)) {
         return
     }
 
-    $resultat = Preparar-UO -nom $nom -ruta $rutaActual
+    $uo = Buscar-UO -nom $nom -ruta $rutaActual
     # els missatges els mostro aqui al programa principal.
-    if ($resultat.Creada) {
+    if (-not $uo) {
+        $uo = Crear-UO -nom $nom -ruta $rutaActual
         Write-Host "Creada: $nom"
     }
     else {
@@ -54,6 +55,6 @@ foreach ($nom in (@($nomOU) + $descendents)) {
 
     # despres de la principal canvio la ruta per posar-hi les filles.
     if ($rutaActual -eq $ruta) {
-        $rutaActual = $resultat.UO.DistinguishedName
+        $rutaActual = $uo.DistinguishedName
     }
 }

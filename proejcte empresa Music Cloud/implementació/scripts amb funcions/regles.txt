@@ -1,1 +1,5 @@
 UNA FUNCIO MAI ESCRIURA ALGO SI ALGO AL PROGRAMA PPRINCIPAL.
+
+san de ficar les proves fetes i el resultat esperat.
+
+LES FUNCIONS HAN DE FER 1 SOLA COSA, si es fa mes de una es creen me sd euna funcio 
