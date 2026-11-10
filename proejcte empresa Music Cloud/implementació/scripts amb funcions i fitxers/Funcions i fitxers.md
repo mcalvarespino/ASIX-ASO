@@ -126,3 +126,33 @@ Ja existeix: Equips
 Ja existeix: Servidors
 Ja existeix: Comptes_de_servei
 ```
+
+## Preparar el csv dels grups
+
+> he ficat els 11 grups que toquen al grups.csv. A Nom hi va el nom del grup i a Ruta hi va la UO on ha d'anar. Tots van a Grups dins de MusicCloud.
+
+[Fitxer dels grups](Dades/grups.csv)
+
+> per provar que el csv es llegeix be el fico al Core i faig un Import-Csv. Han de sortir els 11 grups amb el nom i la ruta separats.
+
+```powershell
+PS C:\Users\Administrador> $grups = Import-Csv -LiteralPath 'C:\Users\Administrador\Dades\grups.csv'
+PS C:\Users\Administrador> $grups | Format-Table Nom,Ruta -AutoSize
+
+Nom                   Ruta
+---                   ----
+GG_Direccio           OU=Grups,OU=MusicCloud,DC=musiccloud,DC=local
+GG_Administracio      OU=Grups,OU=MusicCloud,DC=musiccloud,DC=local
+GG_Suport_Tecnic      OU=Grups,OU=MusicCloud,DC=musiccloud,DC=local
+GG_Produccio_Musical  OU=Grups,OU=MusicCloud,DC=musiccloud,DC=local
+GG_Informatica        OU=Grups,OU=MusicCloud,DC=musiccloud,DC=local
+GG_Externs            OU=Grups,OU=MusicCloud,DC=musiccloud,DC=local
+GG_Caps_Departament   OU=Grups,OU=MusicCloud,DC=musiccloud,DC=local
+GG_Campanya_Estiu     OU=Grups,OU=MusicCloud,DC=musiccloud,DC=local
+GG_Nou_Cataleg        OU=Grups,OU=MusicCloud,DC=musiccloud,DC=local
+GG_Migracio_Servidors OU=Grups,OU=MusicCloud,DC=musiccloud,DC=local
+GG_Admins_Sistema     OU=Grups,OU=MusicCloud,DC=musiccloud,DC=local
+
+PS C:\Users\Administrador> $grups.Count
+11
+```
