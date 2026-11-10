@@ -15,9 +15,6 @@
 
 > els grups de permisos, com GP_Administracio_Gestio_LE, els deixo per la part de permisos.
 
-## Com estaven les UO
-
-> quan vaig començar, Grups ja existia i estava buida. Dins de MusicCloud falten Servidors i Comptes_de_servei. A Usuaris hi ha les UO dels departaments i falten Interns i Externs. A Equips hi ha Clients i Servidors, pero al disseny Servidors va al costat d'Equips.
 
 ## Afegir les UO que falten
 
@@ -44,9 +41,8 @@ Ja existeix: Interns
 Ja existeix: Externs
 ```
 
-> he comprovat les rutes amb Get-ADOrganizationalUnit. Ara hi son totes les UO del disseny i els 11 grups segueixen dins de Grups. Encara hi ha les cinc UO de departaments, Clients i el Servidors de dins d'Equips, que eren de la practica anterior.
 
-## Primera prova al Core
+## prova al Core
 
 > espero que digui que falta GG_Direccio. Si li passo una ruta que no existeix, espero que avisi i pari.
 
