@@ -1,0 +1,8 @@
+OU=MusicCloud,DC=musiccloud,DC=local
+OU=Usuaris,OU=MusicCloud,DC=musiccloud,DC=local
+OU=Interns,OU=Usuaris,OU=MusicCloud,DC=musiccloud,DC=local
+OU=Externs,OU=Usuaris,OU=MusicCloud,DC=musiccloud,DC=local
+OU=Grups,OU=MusicCloud,DC=musiccloud,DC=local
+OU=Equips,OU=MusicCloud,DC=musiccloud,DC=local
+OU=Servidors,OU=MusicCloud,DC=musiccloud,DC=local
+OU=Comptes_de_servei,OU=MusicCloud,DC=musiccloud,DC=local
