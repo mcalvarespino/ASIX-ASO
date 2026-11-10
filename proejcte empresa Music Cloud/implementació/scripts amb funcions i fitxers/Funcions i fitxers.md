@@ -38,3 +38,23 @@ OU=Equips,OU=MusicCloud,DC=musiccloud,DC=local
 OU=Servidors,OU=MusicCloud,DC=musiccloud,DC=local
 OU=Comptes_de_servei,OU=MusicCloud,DC=musiccloud,DC=local
 ```
+
+## Llegir el txt i separar el nom de la ruta
+
+> ara he fet el crear_ous.ps1. La funcio llegeix el txt i al foreach tallo cada linia per la primera coma. Trec OU= del nom i la resta es la ruta on ha d'anar.
+
+[Script](crear_ous.ps1)
+
+> ho provo al Core. Han de sortir les 8 UO amb el nom i la ruta separats. En aquest pas nomes les mostro.
+
+```powershell
+PS> .\crear_ous.ps1
+MusicCloud -> DC=musiccloud,DC=local
+Usuaris -> OU=MusicCloud,DC=musiccloud,DC=local
+Interns -> OU=Usuaris,OU=MusicCloud,DC=musiccloud,DC=local
+Externs -> OU=Usuaris,OU=MusicCloud,DC=musiccloud,DC=local
+Grups -> OU=MusicCloud,DC=musiccloud,DC=local
+Equips -> OU=MusicCloud,DC=musiccloud,DC=local
+Servidors -> OU=MusicCloud,DC=musiccloud,DC=local
+Comptes_de_servei -> OU=MusicCloud,DC=musiccloud,DC=local
+```
