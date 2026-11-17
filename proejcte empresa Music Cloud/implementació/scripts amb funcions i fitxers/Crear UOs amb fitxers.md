@@ -54,3 +54,43 @@ OU=ProvaUOFitxer,OU=MusicCloud,DC=musiccloud,DC=local
 ```
 
 > al final he borrat la UO i el TXT de prova.
+
+## Primera prova dels logs
+
+> he ficat els logs com als apunts. Agafo la data una vegada quan executo el script. Amb `6>>` guardo el que es crea o ja hi era a `uos.log`, amb `3>>` guardo els avisos a `uos.warn` i amb `2>>` guardo els errors a `uos.err`. Queden a la carpeta `Dades`.
+
+> faig un txt amb una UO de prova. Executo el script dos cops i miro les dues ultimes linies del log. El primer cop la crea i el segon diu que ja existeix.
+
+```powershell
+PS C:\Users\Administrador> $txt = '.\prova_uo.txt'
+PS C:\Users\Administrador> 'OU=ProvaLogUO,OU=MusicCloud,DC=musiccloud,DC=local' | Set-Content $txt
+PS C:\Users\Administrador> .\crear_uos_fitxer.ps1 -fitxer $txt
+Creada: ProvaLogUO
+PS C:\Users\Administrador> .\crear_uos_fitxer.ps1 -fitxer $txt
+Ja existeix: ProvaLogUO
+PS C:\Users\Administrador> Get-Content .\Dades\uos.log -Tail 2
+2026-11-17 16:16:54 [INFO] Creada: ProvaLogUO | OU=MusicCloud,DC=musiccloud,DC=local
+2026-11-17 16:16:55 [INFO] Ja existeix: ProvaLogUO | OU=MusicCloud,DC=musiccloud,DC=local
+```
+
+> ara poso una ruta que no existeix per veure si l'error queda al `.err`.
+
+```powershell
+PS C:\Users\Administrador> 'OU=ProvaLogUO,OU=NoExisteixProva,DC=musiccloud,DC=local' | Set-Content $txt
+PS C:\Users\Administrador> try { .\crear_uos_fitxer.ps1 -fitxer $txt } catch { $_.Exception.Message }
+No se encuentra el objeto de directorio
+PS C:\Users\Administrador> Select-String -Path .\Dades\uos.err -SimpleMatch '[ERR]' | Select-Object -Last 1 -ExpandProperty Line
+C:\Users\Administrador\crear_uos_fitxer.ps1 : 2026-11-17 16:16:55 [ERR] No se encuentra el objeto
+```
+
+> borro el txt i torno a executar el script. Ha de sortir l'avis i quedar al `.warn`.
+
+```powershell
+PS C:\Users\Administrador> Remove-Item $txt
+PS C:\Users\Administrador> .\crear_uos_fitxer.ps1 -fitxer $txt
+No trobo el fitxer: .\prova_uo.txt
+PS C:\Users\Administrador> Get-Content .\Dades\uos.warn -Tail 1
+2026-11-17 16:16:56 [WARN] No trobo el fitxer: .\prova_uo.txt
+```
+
+> al final he borrat la UO de prova.
