@@ -74,3 +74,44 @@ No trobo el fitxer: C:\Users\Administrador\AppData\Local\Temp\grups_prova.csv
 ```
 
 > al final he borrat el grup de prova.
+
+## Primera prova dels logs
+
+> he ficat els logs igual que al script de les UO. Agafo la data quan executo el script i guardo els missatges a `grups.log` amb `6>>`, els avisos a `grups.warn` amb `3>>` i els errors a `grups.err` amb `2>>`. Els tres fitxers queden a `Dades`.
+
+> faig un csv amb un grup de prova. El primer cop espero que el crei i el segon que digui que ja existeix. Miro que surtin les dues coses al log.
+
+```powershell
+PS C:\Users\Administrador> $csv = '.\prova_grup.csv'
+PS C:\Users\Administrador> 'Nom,Ruta','GG_ProvaLog,"OU=Grups,OU=MusicCloud,DC=musiccloud,DC=local"' | Set-Content $csv
+PS C:\Users\Administrador> .\crear_grups_fitxer.ps1 -fitxer $csv
+Creat: GG_ProvaLog
+PS C:\Users\Administrador> .\crear_grups_fitxer.ps1 -fitxer $csv
+Ja existeix: GG_ProvaLog
+PS C:\Users\Administrador> Get-Content .\Dades\grups.log -Tail 3
+2026-11-17 16:25:25 [INFO] Creat: GG_ProvaLog | OU=Grups,OU=MusicCloud,DC=musiccloud,DC=local
+2026-11-17 16:25:26 [INFO] Ja existeix: GG_ProvaLog |
+OU=Grups,OU=MusicCloud,DC=musiccloud,DC=local
+```
+
+> ara fico una ruta que no existeix. Ha de donar error i quedar al `.err`.
+
+```powershell
+PS C:\Users\Administrador> 'Nom,Ruta','GG_ProvaLog,"OU=NoExisteixProva,DC=musiccloud,DC=local"' | Set-Content $csv
+PS C:\Users\Administrador> try { .\crear_grups_fitxer.ps1 -fitxer $csv } catch { $_.Exception.Message }
+No se encuentra el objeto de directorio
+PS C:\Users\Administrador> Select-String -Path .\Dades\grups.err -SimpleMatch '[ERR]' | Select-Object -Last 1 -ExpandProperty Line
+C:\Users\Administrador\crear_grups_fitxer.ps1 : 2026-11-17 16:25:26 [ERR] No se encuentra el
+```
+
+> borro el csv i torno a executar el script. Ha de sortir l'avis i quedar al `.warn`.
+
+```powershell
+PS C:\Users\Administrador> Remove-Item $csv
+PS C:\Users\Administrador> .\crear_grups_fitxer.ps1 -fitxer $csv
+No trobo el fitxer: .\prova_grup.csv
+PS C:\Users\Administrador> Get-Content .\Dades\grups.warn -Tail 1
+2026-11-17 16:25:27 [WARN] No trobo el fitxer: .\prova_grup.csv
+```
+
+> al final he borrat el grup de prova.
