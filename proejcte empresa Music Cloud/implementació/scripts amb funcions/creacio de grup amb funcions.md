@@ -2,7 +2,7 @@
 
 > he començat pel mateix que al 7. Primer miro si la UO existeix i despres busco el grup. Per defecte busca a Grups dins de MusicCloud. La funcio nomes fa la cerca i el missatge surt al programa principal.
 
-[crear_grups.ps1](scripts%20amb%20funcions/crear_grups.ps1)
+[crear_grups.ps1](crear_grups.ps1)
 
 ## Grups que toquen
 

@@ -6,7 +6,7 @@
 
 > primer faig el script amb el nom i la ruta en variables, com a l'exemple dels apunts. Si la UO ja existeix no la torna a crear.
 
-Script: [crear_uo_01.ps1](../scripts/crear_uo_01.ps1)
+Script: [crear_uo_01.ps1](scripts/crear_uo_01.ps1)
 
 ```powershell
 $nomOU = "MusicCloud"
@@ -33,7 +33,7 @@ PS C:\Users\Administrador>
 
 > parteixo del primer i nomes canvio el nom per un argument. La ruta segueix fixa.
 
-Script: [crear_uo_02.ps1](../scripts/crear_uo_02.ps1)
+Script: [crear_uo_02.ps1](scripts/crear_uo_02.ps1)
 
 ```powershell
 $nomOU = $args[0]
@@ -60,7 +60,7 @@ PS C:\Users\Administrador>
 
 > ara modifico el segon i tambe passo la ruta com a argument.
 
-Script: [crear_uo_03.ps1](../scripts/crear_uo_03.ps1)
+Script: [crear_uo_03.ps1](scripts/crear_uo_03.ps1)
 
 ```powershell
 $nomOU = $args[0]
@@ -86,7 +86,7 @@ PS C:\Users\Administrador>
 
 > parteixo del tercer i canvio els args per param, com a l'exemple del profe. Ara els arguments tenen nom.
 
-Script: [crear_uo_04.ps1](../scripts/crear_uo_04.ps1)
+Script: [crear_uo_04.ps1](scripts/crear_uo_04.ps1)
 
 ```powershell
 param (
@@ -111,7 +111,7 @@ PS C:\Users\Administrador>
 
 > modifico el quart posant el nom obligatori. Si no passo ruta, fa servir el domini musiccloud.local.
 
-Script: [crear_uo_05.ps1](../scripts/crear_uo_05.ps1)
+Script: [crear_uo_05.ps1](scripts/crear_uo_05.ps1)
 
 ```powershell
 param (
@@ -146,7 +146,7 @@ PS C:\Users\Administrador>
 
 > parteixo del cinque. Primer comprovo que la ruta existeix i que es el domini o una UO. Despres busco la UO per la seva ruta completa. Si no existeix, la creo.
 
-Script: [crear_uo_06.ps1](../scripts/crear_uo_06.ps1)
+Script: [crear_uo_06.ps1](scripts/crear_uo_06.ps1)
 
 > per provar que es pot repetir ficarem aquestes comandes:
 
@@ -180,7 +180,7 @@ PS C:\Users\Administrador>
 
 > primer comprovo la ruta. Amb un foreach creo la UO principal i despres les filles. Si alguna ja existeix, la deixo com esta.
 
-Script: [crear_uo_07.ps1](../scripts/crear_uo_07.ps1)
+Script: [crear_uo_07.ps1](scripts/crear_uo_07.ps1)
 
 > els noms de les filles es passen com una llista, no estan escrits dins del script. Per provar-ho agafo els noms que ja tenim a MusicCloud:
 

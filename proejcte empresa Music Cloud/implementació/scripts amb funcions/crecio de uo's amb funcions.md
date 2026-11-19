@@ -2,7 +2,7 @@
 
 > he fet el mateix que al crear_uo_07. Li passo el nom, la ruta i la llista de filles. Si alguna UO ja existeix, la deixa com esta.
 
-Script: [crear_uo_07.ps1](scripts/crear_uo_07.ps1)
+Script: [crear_uo_07.ps1](crear_uo_07.ps1)
 
 > Buscar-UO nomes busca una UO i Crear-UO nomes la crea. Les dues retornen el resultat. Els missatges els fico al programa principal.
 

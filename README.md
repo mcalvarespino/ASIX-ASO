@@ -10,10 +10,10 @@ El repositori em serveix per documentar el que aprenc, practicar l'administraci�
 
 ## Contingut
 
-- **[Informació de MusicCloud](<proejcte empresa Music Cloud/Informació de MusicCloud.md>):** dades de l'empresa, departaments, treballadors, perfils, carpetes i matriu d'accessos de referència.
+- **[Informació de MusicCloud](<proejcte empresa Music Cloud/informació empresa/Informació de MusicCloud.md>):** dades de l'empresa, departaments, treballadors, perfils, carpetes i matriu d'accessos de referència.
 - **Projecte MusicCloud:** anàlisi de les necessitats de l'empresa, usuaris, recursos i accessos, i disseny del servei de directori.
-  - [Anàlisi inicial de MusicCloud](<proejcte empresa Music Cloud/Anàlisi inicial de MusicCloud.md>).
-  - [Organització del servei de directori de MusicCloud](<proejcte empresa Music Cloud/Organització del servei de directori de MusicCloud.md>).
+  - [Anàlisi inicial de MusicCloud](<proejcte empresa Music Cloud/disseny/Anàlisi inicial de MusicCloud.md>).
+  - [Organització del servei de directori de MusicCloud](<proejcte empresa Music Cloud/disseny/Organització del servei de directori de MusicCloud.md>).
 - **[PowerShell](powershell/):** activitats sobre fitxers i carpetes, variables, tipus de dades, arrays, pipelines, filtres, estructures de control i scripts, amb captures quan calen.
 
 Les activitats estan desades en format Markdown amb el nom de l'activitat com a nom del fitxer.

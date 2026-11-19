@@ -1,6 +1,6 @@
 # Fitxa 2 — Organització del servei de directori de MusicCloud
 
-**Informació de referència:** [Informació de MusicCloud](<Informació de MusicCloud.md>).
+**Informació de referència:** [Informació de MusicCloud](<../informació empresa/Informació de MusicCloud.md>).
 
 ## Objectiu
 

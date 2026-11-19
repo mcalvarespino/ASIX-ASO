@@ -1,6 +1,6 @@
 # Fitxa 1 — Anàlisi inicial de MusicCloud
 
-**Informació de referència:** [Informació de MusicCloud](<Informació de MusicCloud.md>).
+**Informació de referència:** [Informació de MusicCloud](<../informació empresa/Informació de MusicCloud.md>).
 
 **Nom i cognoms:** Marcos Calvar Espino\
 **Data:** 17/09/26
