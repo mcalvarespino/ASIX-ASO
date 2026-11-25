@@ -178,68 +178,7 @@ PS C:\Users\Administrador>
 
 ## 7. Crear la UO i les seves filles
 
-> primer comprovo la ruta. Amb un foreach creo la UO principal i despres les filles. Si alguna ja existeix, la deixo com esta.
+>Per fer aquet primer farem el plantejament:
+>Jo el que faria seria: Primer comprovare que la ruta existeix, Despres mirarem si la UO principal ja esta creada i si falta la crearem, a le shores un cop estigui la principal que volem crear les filles ja existeixi o lhaguem creat farem les filles que estan a baix 
 
-Script: [crear_uo_07.ps1](scripts/crear_uo_07.ps1)
-
-> els noms de les filles es passen com una llista, no estan escrits dins del script. Per provar-ho agafo els noms que ja tenim a MusicCloud:
-
-```powershell
-PS C:\Users\Administrador> $departaments = Get-ADOrganizationalUnit -Filter * -SearchBase "OU=Usuaris,OU=MusicCloud,DC=musiccloud,DC=local" -SearchScope OneLevel | Select-Object -ExpandProperty Name
-PS C:\Users\Administrador> $tipusEquips = Get-ADOrganizationalUnit -Filter * -SearchBase "OU=Equips,OU=MusicCloud,DC=musiccloud,DC=local" -SearchScope OneLevel | Select-Object -ExpandProperty Name
-PS C:\Users\Administrador> .\scripts\crear_uo_07.ps1 -nomOU Usuaris -ruta "OU=ProvesScripts,DC=musiccloud,DC=local" -descendents $departaments
-Creada: Usuaris
-Creada: Administracio
-Creada: Comercial
-Creada: Desenvolupament
-Creada: Direccio
-Creada: Sistemes
-PS C:\Users\Administrador> .\scripts\crear_uo_07.ps1 -nomOU Equips -ruta "OU=ProvesScripts,DC=musiccloud,DC=local" -descendents $tipusEquips
-Creada: Equips
-Creada: Clients
-Creada: Servidors
-PS C:\Users\Administrador>
-```
-
-> ara repeteixo les comandes canviant l'ordre dels parametres per comprovar que no duplica res:
-
-```powershell
-PS C:\Users\Administrador> .\scripts\crear_uo_07.ps1 -ruta "OU=ProvesScripts,DC=musiccloud,DC=local" -nomOU Usuaris -descendents $departaments
-Ja existeix: Usuaris
-Ja existeix: Administracio
-Ja existeix: Comercial
-Ja existeix: Desenvolupament
-Ja existeix: Direccio
-Ja existeix: Sistemes
-PS C:\Users\Administrador> .\scripts\crear_uo_07.ps1 -ruta "OU=ProvesScripts,DC=musiccloud,DC=local" -nomOU Equips -descendents $tipusEquips
-Ja existeix: Equips
-Ja existeix: Clients
-Ja existeix: Servidors
-PS C:\Users\Administrador>
-```
-
-> tambe comprovo que primer miri la ruta encara que els noms estiguin buits:
-
-```powershell
-PS C:\Users\Administrador> .\scripts\crear_uo_07.ps1 -nomOU " " -ruta "OU=NoExisteix,DC=musiccloud,DC=local" -descendents " "
-No puc accedir a la ruta: OU=NoExisteix,DC=musiccloud,DC=local
-PS C:\Users\Administrador>
-```
-
-> els set scripts es poden repetir sense duplicar les UO. Els cinc primers tambe els he executat dues vegades directament al Core.
-
-### Comprovacio final
-
-> he eliminat les UO temporals de les proves i he comprovat que les 11 UO de MusicCloud segueixen creades:
-
-```powershell
-PS C:\Users\Administrador> Get-ADOrganizationalUnit -Filter * -SearchBase "OU=MusicCloud,DC=musiccloud,DC=local" | Measure-Object | Select-Object Count
-
-Count
------
-   11
-
-PS C:\Users\Administrador>
-```
-
-al Core amb la UO temporal ProvaUO731b6a2c6 i les filles Clients i Servidors. La primera vegada ha creat les tres UO i a la segona les ha trobat totes. Al final he eliminat la prova temporal.
+>per començar farem la creacio de la principal simple:
